@@ -1,0 +1,10 @@
+[rpmfusion-nonfree-rawhide]
+name=RPM Fusion for Fedora Rawhide - Nonfree
+#baseurl=http://download1.rpmfusion.org/nonfree/fedora/development/$basearch/os/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide&arch=$basearch
+enabled=1
+
+[rpmfusion-nonfree-needsign]
+name=RPM Fusion for Fedora Rawhide - NonFree - Need Sign
+baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-development-rpmfusion_nonfree/
+enabled=0
