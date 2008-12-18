@@ -1,0 +1,35 @@
+[rpmfusion-free-updates]
+name=RPM Fusion for EL 5 - Free - Updates
+#baseurl=http://download1.rpmfusion.org/free/el/updates/5/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-released-5&arch=$basearch
+enabled=1
+
+[rpmfusion-free-updates-testing]
+name=RPM Fusion for EL 5 - Free - Test Updates
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/5/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-5&arch=$basearch
+enabled=1
+
+[rpmfusion-free-needsign]
+name=RPM Fusion for EL 5 - Free - Need Sign
+baseurl=http://buildsys.rpmfusion.org/plague-results/el-5-rpmfusion_free/
+enabled=0
+
+[rpmfusion-nonfree-updates]
+name=RPM Fusion for EL 5 - Nonfree - Updates
+#baseurl=http://download1.rpmfusion.org/nonfree/el/updates/5/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-el-updates-released-5&arch=$basearch
+enabled=1
+
+[rpmfusion-nonfree-updates-testing]
+name=RPM Fusion for EL 5 - Nonfree - Test Updates
+#baseurl=http://download1.rpmfusion.org/nonfree/el/updates/testing/5/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-el-updates-testing-5&arch=$basearch
+enabled=1
+
+[rpmfusion-nonfree-needsign]
+name=RPM Fusion for EL 5 - NonFree - Need Sign
+baseurl=http://buildsys.rpmfusion.org/plague-results/el-5-rpmfusion_nonfree/
+enabled=0
+
+
