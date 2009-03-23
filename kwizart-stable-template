@@ -1,0 +1,20 @@
+[kwizart]
+name=kwizart for Fedora $releasever - $basearch - Base
+baseurl=http://rpms.kwizart.net/fedora/$releasever/$basearch/
+enabled=1
+
+[kwizart-testing]
+name=kwizart-testing for Fedora $releasever - $basearch - Base
+baseurl=http://rpms.kwizart.net/fedora/testing/$releasever/$basearch/
+enabled=0
+
+[kwizart-proprio]
+name=kwizart-proprio for Fedora
+baseurl=http://rpms.kwizart.net/fedora/proprio/common/
+enabled=0
+
+[kwizart-pending]
+name=kwizart-pending for Fedora $releasever - $basearch - Base
+baseurl=http://rpms.kwizart.net/fedora/pending/$releasever/
+enabled=0
+
