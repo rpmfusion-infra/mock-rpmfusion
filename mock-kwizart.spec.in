@@ -27,7 +27,7 @@ Mock config files for the rpms.kwizart.net Repository
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/mock
-install -pm 0644 "*kwizart*.cfg" $RPM_BUILD_ROOT%{_sysconfdir}/mock
+install -pm 0644 *kwizart.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock
 
 
 %clean
@@ -36,7 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%config(noreplace) %{_sysconfdir}/mock/*kwizart*.cfg
+%config(noreplace) %{_sysconfdir}/mock/*kwizart.cfg
 
 
 %changelog
