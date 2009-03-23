@@ -1,10 +1,10 @@
 [kwizart]
-name=kwizart for Fedora $releasever - $basearch - Base
+name=kwizart for Fedora rawhide - $basearch - Base
 baseurl=http://rpms.kwizart.net/fedora/rawhide/$basearch/
 enabled=1
 
 [kwizart-proprio]
-name=kwizart-proprio for Fedora $releasever - $basearch - Base
+name=kwizart-proprio for Fedora rawhide - $basearch - Base
 baseurl=http://rpms.kwizart.net/fedora/proprio/rawhide/$basearch/
 enabled=0
 
