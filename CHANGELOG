@@ -1,3 +1,6 @@
+* Fri Jul 31 2009 kwizart < kwizart at gmail.com > - 11.1-1
+- Switch to target i686 on x86 for Rawhide F-12
+
 * Tue May 12 2009 kwizart < kwizart at gmail.com > - 11.0-1
 - Branch for F-11
 
