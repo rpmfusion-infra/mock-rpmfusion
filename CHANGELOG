@@ -1,4 +1,7 @@
-* Fri Jul 31 2009 kwizart < kwizart at gmail.com > - 11.1-1
+* Wed Sep  2 2009 kwizart < kwizart at gmail.com > - 11.1-1
+- Sync epel 4/5 (Moved to koji, removed plague reference)
+
+* Fri Jul 31 2009 kwizart < kwizart at gmail.com > - 11.0-2
 - Switch to target i686 on x86 for Rawhide F-12
 
 * Tue May 12 2009 kwizart < kwizart at gmail.com > - 11.0-1
