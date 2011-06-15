@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 ppc ppc64"
-FVERSION="8 9 10 11 12 rawhide"
+ARCHES="i386"
+FVERSION="13 14 15 rawhide"
 #FVERSION=rawhide
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
@@ -19,7 +19,12 @@ for arch in $ARCHES ; do
 
 #sed -i -e "s|@arch@|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
 #sed -i -e "s|@version@|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
-
+for arch2 in 'arm s390x sparc sparc64' ; do 
+cp fedora-${fver}-${arch}-${repo}.cfg \
+  fedora-${fver}-${arch2}-${repo}.cfg
+git add fedora-${fver}-${arch2}-${repo}.cfg
+sed -i -e "s|${arch}|${arch2}|g" fedora-${fver}-${arch2}-${repo}.cfg
+done
 
 ### /script
     done
