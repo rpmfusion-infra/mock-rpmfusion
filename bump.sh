@@ -14,7 +14,7 @@ for arch in i386 x86_64 ppc64 ; do
     sed -i -e 's/Fedora 14/Fedora 15/g' fedora-15-$arch-$type.cfg
     sed -i -e 's/Fedora 14/Fedora 15/g' fedora-rawhide-$arch-$type.cfg
   #Rawhide
-    sed -i -e 's/fc15/fc16/g' fedora-rawhide-$arch-$type.cfg
-    sed -i -e 's/15/16/g' fedora-rawhide-$arch-$type.cfg
+  #  sed -i -e 's/fc15/fc16/g' fedora-rawhide-$arch-$type.cfg
+  #  sed -i -e 's/15/16/g' fedora-rawhide-$arch-$type.cfg
   done
 done
