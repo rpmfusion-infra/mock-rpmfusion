@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-for arch in i386 x86_64 ppc64 ; do
+for arch in i386 x86_64 ppc ppc64; do
   for type in rpmfusion_free rpmfusion_nonfree kwizart ; do
     cp -p fedora-14-$arch-$type.cfg fedora-15-$arch-$type.cfg
     #cp -p epel-6-$arch.cfg epel-6-$arch-$type.cfg
