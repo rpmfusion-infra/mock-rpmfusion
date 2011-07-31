@@ -14,3 +14,4 @@ enabled=1
 name=RPM Fusion for EL 5 - Free - Need Sign
 baseurl=http://buildsys.rpmfusion.org/plague-results/el-5-rpmfusion_free/
 enabled=0
+
