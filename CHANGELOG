@@ -2,6 +2,7 @@
 - Add Support for EL6 - rfbz#1862 & rfbz#1864
 - Obsolete F13 config files
 - Fix arm local repository
+- Add support for branched/f16
 
 * Wed Jun 15 2011 Nicolas Chauvet <kwizart@fedoraproject.org> - 15.0-1
 - Update to 15.0
