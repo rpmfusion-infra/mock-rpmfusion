@@ -1,17 +1,17 @@
 [rpmfusion-free-updates]
-name=RPM Fusion for EL 5 - Free - Updates
-#baseurl=http://download1.rpmfusion.org/free/el/updates/5/$basearch/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-released-5&arch=$basearch
+name=RPM Fusion for EL 6 - Free - Updates
+#baseurl=http://download1.rpmfusion.org/free/el/updates/6/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-released-6&arch=$basearch
 enabled=1
 
 [rpmfusion-free-updates-testing]
-name=RPM Fusion for EL 5 - Free - Test Updates
-#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/5/$basearch/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-5&arch=$basearch
+name=RPM Fusion for EL 6 - Free - Test Updates
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/6/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-6&arch=$basearch
 enabled=1
 
 [rpmfusion-free-needsign]
-name=RPM Fusion for EL 5 - Free - Need Sign
-baseurl=http://buildsys.rpmfusion.org/plague-results/el-5-rpmfusion_free/
+name=RPM Fusion for EL 6 - Free - Need Sign
+baseurl=http://buildsys.rpmfusion.org/plague-results/el-6-rpmfusion_free/
 enabled=0
 
