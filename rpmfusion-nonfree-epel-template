@@ -1,17 +1,17 @@
 [rpmfusion-nonfree-updates]
-name=RPM Fusion for EL 6 - Nonfree - Updates
-#baseurl=http://download1.rpmfusion.org/nonfree/el/updates/6/$basearch/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-el-updates-released-6&arch=$basearch
+name=RPM Fusion for EL $releasever - Nonfree - Updates
+#baseurl=http://download1.rpmfusion.org/nonfree/el/updates/$releasever/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-el-updates-released-$releasever&arch=$basearch
 enabled=1
 
 [rpmfusion-nonfree-updates-testing]
-name=RPM Fusion for EL 6 - Nonfree - Test Updates
-#baseurl=http://download1.rpmfusion.org/nonfree/el/updates/testing/6/$basearch/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-el-updates-testing-6&arch=$basearch
+name=RPM Fusion for EL $releasever - Nonfree - Test Updates
+#baseurl=http://download1.rpmfusion.org/nonfree/el/updates/testing/$releasever/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-el-updates-testing-$releasever&arch=$basearch
 enabled=1
 
 [rpmfusion-nonfree-needsign]
-name=RPM Fusion for EL 6 - NonFree - Need Sign
-baseurl=http://buildsys.rpmfusion.org/plague-results/el-6-rpmfusion_nonfree/
+name=RPM Fusion for EL $releasever - NonFree - Need Sign
+baseurl=http://buildsys.rpmfusion.org/plague-results/el-$releasever-rpmfusion_nonfree/
 enabled=0
 
