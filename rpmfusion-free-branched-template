@@ -1,0 +1,23 @@
+[rpmfusion-free]
+name=RPM Fusion for Fedora $releasever - Free
+#baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/$basearch/os/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch
+enabled=1
+
+[rpmfusion-free-updates]
+name=RPM Fusion for Fedora $releasever - Free - Updates
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch
+enabled=1
+
+[rpmfusion-free-updates-testing]
+name=RPM Fusion for Fedora $releasever - Free - Test Updates
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-$releasever&arch=$basearch
+enabled=0
+
+[rpmfusion-free-needsign]
+name=RPM Fusion for Fedora $releasever - Free - Need Sign
+baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-$releasever-rpmfusion_free/
+enabled=0
+

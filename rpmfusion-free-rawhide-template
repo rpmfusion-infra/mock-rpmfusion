@@ -1,6 +1,6 @@
 [rpmfusion-free-rawhide]
 name=RPM Fusion for Fedora Rawhide - Free
-#baseurl=http://download1.rpmfusion.org/free/fedora/development/$basearch/os/
+#baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/$basearch/os/
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide&arch=$basearch
 enabled=1
 

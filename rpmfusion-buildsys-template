@@ -3,11 +3,13 @@
 [buildsys_private]
 name=Buildsys RPM Fusion free for Fedora @version@ , private
 baseurl=http://buildsys.rpmfusion.org/builsys_private/fedora/@version@/@arch@/
+cost=2000
 enabled=0
 
 [buildsys_kernel-devel]
 name=Buildsys RPM Fusion free for Fedora Rawhide, kernel-devel
 baseurl=http://buildsys.rpmfusion.org/kernel-devel-pkgs/fedora/@version@/
+cost=2000
 enabled=0
 
 
