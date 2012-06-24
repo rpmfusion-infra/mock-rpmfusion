@@ -1,0 +1,11 @@
+[fedora-debug]
+name=fedora-debug
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-f$releasever&arch=$basearch
+failovermethod=priority
+enabled=0
+ 
+[updates-debug]
+name=updates-debug
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-debug-f$releasever&arch=$basearch
+failovermethod=priority
+enabled=0
