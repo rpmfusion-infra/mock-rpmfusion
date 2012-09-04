@@ -13,13 +13,3 @@ name=kwizart-nonfree for Fedora
 baseurl=http://rpms.kwizart.net/fedora/nonfree/$releasever/$basearch/
 enabled=0
 
-[kwizart-nonfree-common]
-name=kwizart-nonfree for Fedora
-baseurl=http://rpms.kwizart.net/fedora/nonfree/common/$basearch/
-enabled=0
-
-[kwizart-pending]
-name=kwizart-pending for Fedora $releasever - $basearch - Base
-baseurl=http://rpms.kwizart.net/fedora/pending/$releasever/$basearch/
-enabled=0
-
