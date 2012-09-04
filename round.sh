@@ -21,7 +21,7 @@ for arch in $ARCHES ; do
 #sed -i -e "s|@version@|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
 #for arch2 in sparc sparc64 ; do
   cp /etc/mock/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|$^\"\"\"||g" fedora-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|^\"\"\"||g" fedora-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-stable-template >> fedora-${fver}-${arch}-${repo}.cfg

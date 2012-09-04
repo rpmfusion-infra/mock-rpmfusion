@@ -8,8 +8,3 @@ name=kwizart-testing for Fedora $releasever - $basearch - Base
 baseurl=http://rpms.kwizart.net/fedora/testing/$releasever/$basearch/
 enabled=0
 
-[kwizart-nonfree]
-name=kwizart-nonfree for Fedora
-baseurl=http://rpms.kwizart.net/fedora/nonfree/$releasever/$basearch/
-enabled=0
-
