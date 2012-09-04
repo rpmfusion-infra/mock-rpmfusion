@@ -4,6 +4,12 @@ name=RPM Fusion for Fedora Rawhide - Nonfree
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide&arch=$basearch
 enabled=1
 
+[rpmfusion-nonfree-rawhide-debuginfo]
+name=RPM Fusion for Fedora Rawhide - Nonfree - Debug
+#baseurl=http://download1.rpmfusion.org/nonfree/fedora/fedora/development/rawhide/$basearch/os/debug/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide-debug&arch=$basearch
+enabled=0
+
 [rpmfusion-nonfree-needsign]
 name=RPM Fusion for Fedora Rawhide - NonFree - Need Sign
 baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-development-rpmfusion_nonfree/

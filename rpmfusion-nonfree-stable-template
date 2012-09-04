@@ -4,11 +4,23 @@ name=RPM Fusion for Fedora $releasever - Nonfree
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-$releasever&arch=$basearch
 enabled=1
 
+[rpmfusion-nonfree-debuginfo]
+name=RPM Fusion for Fedora $releasever - Nonfree - Debug
+#baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/$basearch/debug/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-debug-$releasever&arch=$basearch
+enabled=0
+
 [rpmfusion-nonfree-updates]
 name=RPM Fusion for Fedora $releasever - Nonfree - Updates
 #baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch/
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
 enabled=1
+
+[rpmfusion-nonfree-updates-debuginfo]
+name=RPM Fusion for Fedora $releasever - Nonfree - Updates Debug
+#baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch/debug/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-debug-$releasever&arch=$basearch
+enabled=0
 
 [rpmfusion-nonfree-updates-testing]
 name=RPM Fusion for Fedora $releasever - Nonfree - Test Updates
@@ -16,7 +28,14 @@ name=RPM Fusion for Fedora $releasever - Nonfree - Test Updates
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-testing-$releasever&arch=$basearch
 enabled=0
 
+[rpmfusion-nonfree-updates-testing-debuginfo]
+name=RPM Fusion for Fedora $releasever - Nonfree - Test Updates Debug
+#baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/testing/$releasever/$basearch/debug/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-testing-debug-$releasever&arch=$basearch
+enabled=0
+
 [rpmfusion-nonfree-needsign]
 name=RPM Fusion for Fedora $releasever - NonFree - Need Sign
 baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-$releasever-rpmfusion_nonfree/
 enabled=0
+
