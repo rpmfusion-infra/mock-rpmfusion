@@ -1,8 +1,7 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 arm armhfp ppc ppc64 sparc sparc64 s390x"
-FVERSION="16 17"
-#FVERSION=rawhide
+FVERSION="16 17 18 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
 
@@ -20,14 +19,23 @@ for arch in $ARCHES ; do
 #sed -i -e "s|@arch@|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
 #sed -i -e "s|@version@|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
 #for arch2 in sparc sparc64 ; do
+  flavour=stable
+  ffver=$fver
+  if [ $fver = 18 ] ; then
+    flavour=branched
+  fi
+  if [ $fver = rawhide ] ; then
+    flavour=rawhide
+    ffver=19
+  fi
   if [ $fver = 16 -a $arch = armhfp ] ; then
     continue
   fi
   cp /etc/mock/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|^\"\"\"||g" fedora-${fver}-${arch}-${repo}.cfg
-  cat rpmfusion-free-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
+  cat rpmfusion-free-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
-    cat rpmfusion-nonfree-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
+    cat rpmfusion-nonfree-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   fi
   cat rpmfusion-buildsys-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then
