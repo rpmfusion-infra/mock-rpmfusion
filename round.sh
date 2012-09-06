@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64"
+ARCHES="i386 x86_64 arm armhfp ppc ppc64 sparc sparc64 s390x"
 FVERSION="16 17"
 #FVERSION=rawhide
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
@@ -20,6 +20,9 @@ for arch in $ARCHES ; do
 #sed -i -e "s|@arch@|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
 #sed -i -e "s|@version@|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
 #for arch2 in sparc sparc64 ; do
+  if [ $fver = 16 -a $arch = armhfp ] ; then
+    continue
+  fi
   cp /etc/mock/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|^\"\"\"||g" fedora-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
@@ -34,6 +37,9 @@ for arch in $ARCHES ; do
   #git add fedora-${fver}-${arch2}-${repo}.cfg
   sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
+  if [  ! $arch = i386 -a ! $arch = x86_64 ] ; then
+    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
+  fi
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
