@@ -1,0 +1,6 @@
+[buildsys-plague-results-free]
+name=Buildsys RPM Fusion free for Fedora $releasever, plague-results
+baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-$releasever-rpmfusion_free/
+cost=2000
+enabled=0
+
