@@ -1,5 +1,3 @@
-# rpmfusion buildsys
-
 [buildsys_private]
 name=Buildsys RPM Fusion free for Fedora $releasever, private
 baseurl=http://buildsys.rpmfusion.org/builsys_private/fedora/$releasever/$basearch/
