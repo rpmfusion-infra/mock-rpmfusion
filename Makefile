@@ -1,4 +1,4 @@
-VERSION = 18.0
+VERSION = 18.1
 
 release-free : 
 	sed -e's|@VERSION@|${VERSION}|'\

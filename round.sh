@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 arm armhfp ppc ppc64 sparc sparc64 s390x"
+ARCHES="i386 x86_64 arm armhfp ppc ppc64 s390x"
 FVERSION="16 17 18 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
@@ -22,7 +22,7 @@ for arch in $ARCHES ; do
   flavour=stable
   ffver=$fver
   if [ $fver = 18 ] ; then
-    flavour=branched
+    flavour=stable
   fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
