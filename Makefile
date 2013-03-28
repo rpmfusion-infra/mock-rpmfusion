@@ -1,4 +1,4 @@
-VERSION = 18.1
+VERSION = 19.0
 
 release-free : 
 	sed -e's|@VERSION@|${VERSION}|'\
@@ -31,5 +31,5 @@ release-kwizart :
 		mock-kwizart*.spec
 
 clean :	
-	rm *.spec *.tar.bz2 *~
+	rm -rf *.spec *.tar.bz2 *~
 
