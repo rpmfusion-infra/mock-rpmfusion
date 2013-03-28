@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 arm armhfp ppc ppc64 s390x"
-FVERSION="16 17 18 rawhide"
+FVERSION="16 17 18 19 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
 
@@ -21,12 +21,12 @@ for arch in $ARCHES ; do
 #for arch2 in sparc sparc64 ; do
   flavour=stable
   ffver=$fver
-  if [ $fver = 18 ] ; then
-    flavour=stable
+  if [ $fver = 19 ] ; then
+    flavour=branched
   fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    ffver=19
+    ffver=20
   fi
   if [ $fver = 16 -a $arch = armhfp ] ; then
     continue
@@ -42,7 +42,7 @@ for arch in $ARCHES ; do
     cat kwizart-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
   fi
   echo "\"\"\"" >> fedora-${fver}-${arch}-${repo}.cfg
-  #git add fedora-${fver}-${arch2}-${repo}.cfg
+  #git add fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
   if [  ! $arch = i386 -a ! $arch = x86_64 ] ; then
