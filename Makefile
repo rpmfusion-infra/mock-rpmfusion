@@ -1,5 +1,7 @@
 VERSION = 19.0
 
+all: release-free release-nonfree release-kwizart
+
 release-free : 
 	sed -e's|@VERSION@|${VERSION}|'\
 		< mock-rpmfusion-free.spec.in \
