@@ -1,6 +1,6 @@
-VERSION = 19.0
+VERSION = 19.1
 
-all: release-free release-nonfree release-kwizart
+default: release-free release-nonfree release-kwizart
 
 release-free : 
 	sed -e's|@VERSION@|${VERSION}|'\
