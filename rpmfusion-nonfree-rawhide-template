@@ -14,3 +14,8 @@ enabled=0
 name=RPM Fusion for Fedora Rawhide - NonFree - Need Sign
 baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-development-rpmfusion_nonfree/
 enabled=0
+
+[fedora-rawhide-kernel-nodebug]
+name=Fedora Rawhide nodebug
+http://alt.fedoraproject.org/pub/alt/rawhide-kernel-nodebug/
+enabled=0
