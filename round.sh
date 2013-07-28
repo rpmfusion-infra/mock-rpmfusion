@@ -21,9 +21,9 @@ for arch in $ARCHES ; do
 #for arch2 in sparc sparc64 ; do
   flavour=stable
   ffver=$fver
-  if [ $fver = 19 ] ; then
-    flavour=branched
-  fi
+  #if [ $fver = 19 ] ; then
+  #  flavour=branched
+  #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
     ffver=20
