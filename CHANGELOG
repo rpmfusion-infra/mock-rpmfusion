@@ -1,4 +1,8 @@
-* Sun Jul 28 2013 Nicolas Chauvet <kwizart@gmail.com> - 19.1-1
+* Sun Jul 28 2013 Nicolas Chauvet <kwizart@gmail.com> - 19.2-1
+- Update to 19.2
+- Add rawhide-kernel-nodebug
+
+* Sun Jul 28 2013 Nicolas Chauvet <kwizart@gmail.com> - 19.2-1
 - Update to 19.1
 - Add kernel-override repository - disabled by default
 

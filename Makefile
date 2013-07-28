@@ -1,4 +1,4 @@
-VERSION = 19.1
+VERSION = 19.2
 
 default: release-free release-nonfree release-kwizart
 
