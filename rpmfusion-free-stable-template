@@ -39,3 +39,8 @@ name=RPM Fusion for Fedora $releasever - Free - Need Sign
 baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-$releasever-rpmfusion_free/
 enabled=0
 
+[rpmfusion-kernel-devel-override]
+name=RPM Fusion for Fedora $releasever - Fedora Kernel Devel Override
+baseurl=http://buildsys.rpmfusion.org/kernel-devel-pkgs/fedora/$releasever/
+enabled=0
+
