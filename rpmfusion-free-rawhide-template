@@ -1,3 +1,8 @@
+[fedora-rawhide-kernel-nodebug]
+name=Fedora Rawhide nodebug
+http://alt.fedoraproject.org/pub/alt/rawhide-kernel-nodebug/$basearch
+enabled=1
+
 [rpmfusion-free-rawhide]
 name=RPM Fusion for Fedora Rawhide - Free
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/$basearch/os/
@@ -15,7 +20,3 @@ name=RPM Fusion for Fedora Rawhide - Free - Need Sign
 baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-development-rpmfusion_free/
 enabled=0
 
-[fedora-rawhide-kernel-nodebug]
-name=Fedora Rawhide nodebug
-http://alt.fedoraproject.org/pub/alt/rawhide-kernel-nodebug/
-enabled=0
