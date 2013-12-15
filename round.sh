@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 arm armhfp ppc ppc64 s390x"
-FVERSION="16 17 18 19 rawhide"
+ARCHES="i386 x86_64 armhfp ppc ppc64 s390x"
+FVERSION="18 19 20 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
 
@@ -10,23 +10,15 @@ for arch in $ARCHES ; do
     for fver in $FVERSION ; do
 
 #### script
-#while read line
-#do 
-#echo $line
-#sed -i -e "s|\[local\]|$line\n\[local\]|" fedora-${fver}-${arch}-${repo}.cfg
-#done < rpmfusion-buildsys-template
 
-#sed -i -e "s|@arch@|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
-#sed -i -e "s|@version@|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
-#for arch2 in sparc sparc64 ; do
   flavour=stable
   ffver=$fver
-  #if [ $fver = 19 ] ; then
+  #if [ $fver = 21 ] ; then
   #  flavour=branched
   #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    ffver=20
+    ffver=21
   fi
   if [ $fver = 16 -a $arch = armhfp ] ; then
     continue
