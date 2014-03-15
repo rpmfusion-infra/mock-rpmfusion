@@ -37,7 +37,7 @@
 - Fix koji local URL on secondary arches
 - Disable testing repos on EL
 
-* Wed Mar  8 2012 Nicolas Chauvet <kwizart@gmail.com> - 17.0-1
+* Thu Mar  8 2012 Nicolas Chauvet <kwizart@gmail.com> - 17.0-1
 - Bump to 17.0
 - Introduce armhfp for 15 17 rawhide
 - Drop the multilib workaround
