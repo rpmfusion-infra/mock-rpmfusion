@@ -1,0 +1,13 @@
+[buildsys_private]
+name=Buildsys RPM Fusion free for EL $releasever, private
+baseurl=http://buildsys.rpmfusion.org/builsys_private/el/$releasever/$basearch/
+cost=2000
+enabled=0
+
+[buildsys_kernel-devel]
+name=Buildsys RPM Fusion free for EL $releasever, kernel-devel
+baseurl=http://buildsys.rpmfusion.org/kernel-devel-pkgs/el/$releasever/
+cost=2000
+enabled=0
+
+
