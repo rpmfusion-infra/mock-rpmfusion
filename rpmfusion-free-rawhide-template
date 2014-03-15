@@ -1,6 +1,6 @@
 [fedora-rawhide-kernel-nodebug]
 name=Fedora Rawhide nodebug
-http://alt.fedoraproject.org/pub/alt/rawhide-kernel-nodebug/$basearch
+baseurl=http://alt.fedoraproject.org/pub/alt/rawhide-kernel-nodebug/$basearch
 enabled=1
 
 [rpmfusion-free-rawhide]
