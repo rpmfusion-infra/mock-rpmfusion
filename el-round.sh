@@ -13,14 +13,7 @@ for arch in $ARCHES ; do
 
   flavour=epel
   ffver=$fver
-  #if [ $fver = 21 ] ; then
-  #  flavour=branched
-  #fi
-  if [ $fver = rawhide ] ; then
-    flavour=rawhide
-    ffver=21
-  fi
-  if [ $fver = 16 -a $arch = armhfp ] ; then
+  if [ ! -f /etc/mock/epel-${fver}-${arch}.cfg ] ; then
     continue
   fi
   cp /etc/mock/epel-${fver}-${arch}.cfg epel-${fver}-${arch}-${repo}.cfg
