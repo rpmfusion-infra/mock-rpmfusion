@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 armhfp ppc ppc64 s390x"
-FVERSION="18 19 20 rawhide"
+ARCHES="i386 x86_64 aarch64 armhfp ppc ppc64 s390x"
+FVERSION="18 19 20 21 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
 
@@ -18,9 +18,9 @@ for arch in $ARCHES ; do
   #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    ffver=21
+    ffver=22
   fi
-  if [ $fver = 16 -a $arch = armhfp ] ; then
+  if [ ! -f /etc/mock/fedora-${fver}-${arch}.cfg ] ; then
     continue
   fi
   cp /etc/mock/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
@@ -37,8 +37,10 @@ for arch in $ARCHES ; do
   #git add fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
-  if [  ! $arch = i386 -a ! $arch = x86_64 ] ; then
-    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
+  if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
+    if [ $arch == armhfp -a $fver < 20 ] ; then
+      sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
+    fi
   fi
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
