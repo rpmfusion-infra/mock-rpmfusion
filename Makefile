@@ -1,4 +1,4 @@
-VERSION = 22.0
+VERSION = 23.0
 
 default: release-free release-nonfree release-kwizart
 
