@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 ppc ppc64"
+ARCHES="i386 x86_64 ppc ppc64 ppc64le"
 FVERSION="5 6 7"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
