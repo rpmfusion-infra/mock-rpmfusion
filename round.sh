@@ -29,7 +29,6 @@ for arch in $ARCHES ; do
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   fi
-  cat rpmfusion-buildsys-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then
     cat kwizart-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
   fi
