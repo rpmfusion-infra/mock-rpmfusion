@@ -1,8 +1,3 @@
-[fedora-rawhide-kernel-nodebug]
-name=Fedora Rawhide nodebug
-baseurl=http://alt.fedoraproject.org/pub/alt/rawhide-kernel-nodebug/$basearch
-enabled=1
-
 [rpmfusion-free-rawhide]
 name=RPM Fusion for Fedora Rawhide - Free
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/$basearch/os/
@@ -13,10 +8,5 @@ enabled=1
 name=RPM Fusion for Fedora Rawhide - Free - Debug
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/$basearch/os/debug/
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-debug&arch=$basearch
-enabled=0
-
-[rpmfusion-free-needsign]
-name=RPM Fusion for Fedora Rawhide - Free - Need Sign
-baseurl=http://buildsys.rpmfusion.org/plague-results/fedora-development-rpmfusion_free/
 enabled=0
 
