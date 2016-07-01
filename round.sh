@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 aarch64 armhfp ppc ppc64 s390x"
-FVERSION="21 22 23 rawhide"
+ARCHES="i386 x86_64 aarch64 armhfp ppc ppc64 ppc64le s390x"
+FVERSION="23 24 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 
 
@@ -18,7 +18,7 @@ for arch in $ARCHES ; do
   #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    ffver=24
+    ffver=25
   fi
   if [ ! -f /etc/mock/fedora-${fver}-${arch}.cfg ] ; then
     continue
