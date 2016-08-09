@@ -1,8 +1,13 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 armhfp ppc ppc64 ppc64le s390x"
-FVERSION="23 24 rawhide"
+FVERSION="23 24 25 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
+#cd .. ; git clone https://git.fedorahosted.org/git/mock.git ; cd mock
+#git checkout devel
+etc_mock=../mock/etc/mock
+#to old config uncomment next line
+#etc_mock=/etc/mock
 
 
 for arch in $ARCHES ; do
@@ -18,12 +23,13 @@ for arch in $ARCHES ; do
   #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    ffver=25
+    ffver=26
   fi
-  if [ ! -f /etc/mock/fedora-${fver}-${arch}.cfg ] ; then
+  if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
+    echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
     continue
   fi
-  cp /etc/mock/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
+  cp ${etc_mock}/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|^\"\"\"||g" fedora-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
