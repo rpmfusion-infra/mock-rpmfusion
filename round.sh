@@ -27,6 +27,8 @@ for arch in $ARCHES ; do
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
     echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
+    # removing obsoleted .cfg
+    rm -f fedora-${fver}-${arch}-${repo}.cfg
     continue
   fi
   cp template_init fedora-${fver}-${arch}-${repo}.cfg
