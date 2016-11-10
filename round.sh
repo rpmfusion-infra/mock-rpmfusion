@@ -42,8 +42,8 @@ for arch in $ARCHES ; do
   fi
   echo "\"\"\"" >> fedora-${fver}-${arch}-${repo}.cfg
   #git add fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
+  #sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
+  #sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
   if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
     if [ "$arch" == "armhfp" -a "${ffver}" -gt "19" ] ; then
         :
