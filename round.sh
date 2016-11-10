@@ -31,8 +31,8 @@ for arch in $ARCHES ; do
     rm -f fedora-${fver}-${arch}-${repo}.cfg
     continue
   fi
-  cp ${etc_mock}/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|^\"\"\"||g" fedora-${fver}-${arch}-${repo}.cfg
+  cp template_init fedora-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
