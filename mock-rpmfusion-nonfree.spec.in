@@ -10,7 +10,7 @@ Source0:        %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-Requires:       mock
+Requires:       mock >= 1.2.19
 
 %description
 Mock config files for the RPM Fusion NonFree Repository
