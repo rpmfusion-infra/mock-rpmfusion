@@ -36,7 +36,7 @@ enabled=0
 
 [buildsys-override-nonfree]
 name=Buildsys RPM Fusion nonfree for Fedora $releasever, override
-baseurl=http://koji.rpmfusion.org/buildsys-override/f$releasever-free/$basearch/
+baseurl=http://koji.rpmfusion.org/buildsys-override/f$releasever-nonfree/$basearch/
 cost=2000
 enabled=0
 
