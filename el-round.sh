@@ -30,6 +30,7 @@ for arch in $ARCHES ; do
   #git add fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$basearch|${arch}|g" epel-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$releasever|${fver}|g" epel-${fver}-${arch}-${repo}.cfg
+  mv epel-${fver}-${arch}-${repo}.cfg etc/mock
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg

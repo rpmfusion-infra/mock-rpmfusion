@@ -8,8 +8,8 @@ release-free :
 		> mock-rpmfusion-free.spec
 	cat CHANGELOG >> mock-rpmfusion-free.spec
 	tar cjvf mock-rpmfusion-free-$(VERSION).tar.bz2 \
-		fedora-*_free.cfg \
-		epel-*_free.cfg \
+		etc/mock/fedora-*_free.cfg \
+		etc/mock/epel-*_free.cfg \
 		mock-rpmfusion-free.spec
 
 release-nonfree : 
@@ -18,8 +18,8 @@ release-nonfree :
 		> mock-rpmfusion-nonfree.spec
 	cat CHANGELOG >> mock-rpmfusion-nonfree.spec
 	tar cjvf mock-rpmfusion-nonfree-$(VERSION).tar.bz2 \
-		fedora-*_nonfree.cfg \
-		epel-*_nonfree.cfg \
+		etc/mock/fedora-*_nonfree.cfg \
+		etc/mock/epel-*_nonfree.cfg \
 		mock-rpmfusion-nonfree.spec
 
 release-kwizart :
@@ -28,8 +28,8 @@ release-kwizart :
 		> mock-kwizart.spec
 	cat CHANGELOG >> mock-kwizart.spec
 	tar cjvf mock-kwizart-$(VERSION).tar.bz2 \
-		fedora-*kwizart.cfg \
-		epel-*kwizart.cfg \
+		etc/mock/fedora-*kwizart.cfg \
+		etc/mock/epel-*kwizart.cfg \
 		mock-kwizart*.spec
 
 clean :	

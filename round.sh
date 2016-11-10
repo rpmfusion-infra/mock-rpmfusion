@@ -44,10 +44,13 @@ for arch in $ARCHES ; do
   sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
   if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
     if [ "$arch" == "armhfp" -a "${ffver}" -gt "19" ] ; then
-      continue
+        :
+    else
+        #echo sed it fedora-${fver}-${arch}-${repo}.cfg
+        sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
     fi
-    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
   fi
+  mv fedora-${fver}-${arch}-${repo}.cfg etc/mock
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
