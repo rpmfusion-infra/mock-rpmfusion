@@ -3,6 +3,11 @@
 ARCHES="i386 x86_64 ppc ppc64 ppc64le"
 FVERSION="5 6 7"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
+#cd .. ; git clone https://git.fedorahosted.org/git/mock.git ; cd mock
+#git checkout devel
+etc_mock=../mock/etc/mock
+#to old config uncomment next line
+#etc_mock=/etc/mock
 
 
 for arch in $ARCHES ; do
@@ -16,7 +21,7 @@ for arch in $ARCHES ; do
   if [ ! -f /etc/mock/epel-${fver}-${arch}.cfg ] ; then
     continue
   fi
-  cp /etc/mock/epel-${fver}-${arch}.cfg epel-${fver}-${arch}-${repo}.cfg
+  cp ${etc_mock}/epel-${fver}-${arch}.cfg epel-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|^\"\"\"||g" epel-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
