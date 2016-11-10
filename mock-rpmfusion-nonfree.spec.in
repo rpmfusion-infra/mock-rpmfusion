@@ -10,7 +10,7 @@ Source0:        %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-Requires:       mock
+Requires:       mock >= 1.2.19
 
 %description
 Mock config files for the RPM Fusion NonFree Repository
@@ -27,7 +27,7 @@ Mock config files for the RPM Fusion NonFree Repository
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/mock
-install -pm 0644 *.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock
+install -pm 0644 etc/mock/*.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock
 
 
 %clean
