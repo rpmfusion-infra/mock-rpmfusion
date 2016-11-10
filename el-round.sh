@@ -21,8 +21,8 @@ for arch in $ARCHES ; do
   if [ ! -f /etc/mock/epel-${fver}-${arch}.cfg ] ; then
     continue
   fi
-  cp ${etc_mock}/epel-${fver}-${arch}.cfg epel-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|^\"\"\"||g" epel-${fver}-${arch}-${repo}.cfg
+  cp template_init epel-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" epel-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg

@@ -1,0 +1,3 @@
+include('/etc/mock/configuration_name')
+
+config_opts['yum.conf'] += """
