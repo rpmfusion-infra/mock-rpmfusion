@@ -34,8 +34,14 @@ name=RPM Fusion for Fedora $releasever - Nonfree - Test Updates Debug
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-testing-debug-$releasever&arch=$basearch
 enabled=0
 
+[local-nonfree]
+name=RPM Fusion for Fedora $releasever - Nonfree - Local repo
+baseurl=http://koji.rpmfusion.org/kojifiles/repos/f$releasever-nonfree-build/latest/$basearch/
+cost=2000
+enabled=0
+
 [buildsys-override-nonfree]
-name=Buildsys RPM Fusion nonfree for Fedora $releasever, override
+name=RPM Fusion for Fedora $releasever - Nonfree - Buildsys override
 baseurl=http://koji.rpmfusion.org/buildsys-override/f$releasever-nonfree/$basearch/
 cost=2000
 enabled=0

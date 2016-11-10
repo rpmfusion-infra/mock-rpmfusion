@@ -10,6 +10,12 @@ name=RPM Fusion for EL $releasever - Free - Test Updates
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-$releasever&arch=$basearch
 enabled=1
 
+[local-free]
+name=RPM Fusion for EL $releasever - Free - Local repo
+baseurl=http://koji.rpmfusion.org/kojifiles/repos/el$releasever-free-build/latest/$basearch/
+cost=2000
+enabled=0
+
 [buildsys-override-free]
 name=RPM Fusion for EL $releasever - Free - Buildsys override
 baseurl=http://koji.rpmfusion.org/buildsys-override/el$releasever-free/$basearch/
