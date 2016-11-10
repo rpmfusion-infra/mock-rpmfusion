@@ -10,8 +10,8 @@ name=RPM Fusion for EL $releasever - Free - Test Updates
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-$releasever&arch=$basearch
 enabled=1
 
-[rpmfusion-free-needsign]
-name=RPM Fusion for EL $releasever - Free - Need Sign
-baseurl=http://buildsys.rpmfusion.org/plague-results/el-$releasever-rpmfusion_free/
+[buildsys-override-free]
+name=RPM Fusion for EL $releasever - Free - Buildsys override
+baseurl=http://koji.rpmfusion.org/buildsys-override/el$releasever-free/$basearch/
 enabled=0
 
