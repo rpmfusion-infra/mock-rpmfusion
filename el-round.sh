@@ -14,6 +14,9 @@ for arch in $ARCHES ; do
   flavour=epel
   ffver=$fver
   if [ ! -f /etc/mock/epel-${fver}-${arch}.cfg ] ; then
+    echo "doesnt exit ${etc_mock}/epel-${fver}-${arch}.cfg"
+    # removing obsoleted .cfg
+    rm -f fedora-${fver}-${arch}-${repo}.cfg
     continue
   fi
   cp /etc/mock/epel-${fver}-${arch}.cfg epel-${fver}-${arch}-${repo}.cfg
