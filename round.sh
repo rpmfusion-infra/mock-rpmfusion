@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 aarch64 armhfp ppc ppc64 ppc64le s390x"
+ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le s390x"
 FVERSION="23 24 25 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 #cd .. ; git clone https://git.fedorahosted.org/git/mock.git ; cd mock
@@ -27,6 +27,8 @@ for arch in $ARCHES ; do
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
     echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
+    # removing obsoleted .cfg
+    rm -f fedora-${fver}-${arch}-${repo}.cfg
     continue
   fi
   cp ${etc_mock}/fedora-${fver}-${arch}.cfg fedora-${fver}-${arch}-${repo}.cfg
