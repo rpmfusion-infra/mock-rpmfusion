@@ -3,7 +3,7 @@
 ARCHES="i386 x86_64 ppc ppc64 ppc64le"
 FVERSION="5 6 7"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
-#cd .. ; git clone https://git.fedorahosted.org/git/mock.git ; cd mock
+#cd .. ; git clone https://github.com/rpm-software-management/mock ; cd mock
 #git checkout devel
 etc_mock=../mock/etc/mock
 #to old config uncomment next line
