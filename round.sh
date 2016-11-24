@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 aarch64 armhfp ppc ppc64 ppc64le s390x"
+ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le s390x"
 FVERSION="23 24 25 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 #cd .. ; git clone https://git.fedorahosted.org/git/mock.git ; cd mock
