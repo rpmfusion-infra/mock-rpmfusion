@@ -1,3 +1,6 @@
+* Sun Nov 27 2016 Sérgio Basto <sergio@serjux.com> - 25.2-1
+- Not include rpmfusion-buildsys-epel-template
+
 * Thu Nov 10 2016 Sérgio Basto <sergio@serjux.com> - 25.1-1
 - Update package requires to mock >= 1.2.19
 - Bug fix.
