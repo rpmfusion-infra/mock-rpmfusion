@@ -27,7 +27,7 @@ Mock config files for the RPM Fusion Free Repository
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/mock
-install -pm 0644 *.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock
+install -pm 0644 etc/mock/*.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock
 
 
 %clean
