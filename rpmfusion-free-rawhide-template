@@ -1,12 +1,12 @@
 [rpmfusion-free-rawhide]
 name=RPM Fusion for Fedora Rawhide - Free
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/$basearch/os/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$basearch
 enabled=1
 
 [rpmfusion-free-rawhide-debuginfo]
 name=RPM Fusion for Fedora Rawhide - Free - Debug
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/rawhide/$basearch/os/debug/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-debug&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-debug&arch=$basearch
 enabled=0
 
