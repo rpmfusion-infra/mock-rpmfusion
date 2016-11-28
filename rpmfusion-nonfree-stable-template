@@ -2,6 +2,8 @@
 name=RPM Fusion for Fedora $releasever - Nonfree
 #baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/$basearch/os/
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-$releasever&arch=$basearch
+gpgkey=/usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
+gpgcheck=1
 enabled=1
 
 [rpmfusion-nonfree-debuginfo]
@@ -14,6 +16,8 @@ enabled=0
 name=RPM Fusion for Fedora $releasever - Nonfree - Updates
 #baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch/
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
+gpgkey=/usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
+gpgcheck=1
 enabled=1
 
 [rpmfusion-nonfree-updates-debuginfo]
