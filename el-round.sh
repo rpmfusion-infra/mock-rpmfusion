@@ -22,7 +22,7 @@ for arch in $ARCHES ; do
     continue
   fi
   cp template_init epel-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" epel-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|configuration_name|epel-${fver}-${arch}.cfg|g" epel-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
