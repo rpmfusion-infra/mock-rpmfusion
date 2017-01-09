@@ -27,7 +27,7 @@ for arch in $ARCHES ; do
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   fi
-  cat rpmfusion-buildsys-epel-template >> epel-${fver}-${arch}-${repo}.cfg
+  #cat rpmfusion-buildsys-epel-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then
     cat kwizart-epel-template >> epel-${fver}-${arch}-${repo}.cfg
   fi

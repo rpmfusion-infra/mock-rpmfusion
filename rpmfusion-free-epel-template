@@ -19,5 +19,6 @@ enabled=0
 [buildsys-override-free]
 name=RPM Fusion for EL $releasever - Free - Buildsys override
 baseurl=http://koji.rpmfusion.org/buildsys-override/el$releasever-free/$basearch/
+cost=2000
 enabled=0
 
