@@ -6,8 +6,7 @@ Summary:        Mock config files for the rpms.kwizart.net Repository
 Group:          Development/Tools
 License:        BSD
 URL:            http://rpms.kwizart.net/
-Source0:        %{name}-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/download/%{version}/%{name}-%{version}.tar.bz2
 
 BuildArch:      noarch
 Requires:       mock >= 1.2.19
@@ -25,13 +24,8 @@ Mock config files for the rpms.kwizart.net Repository
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/mock
-install -pm 0644 *kwizart.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+mkdir -p %{buildroot}%{_sysconfdir}/mock
+install -pm 0644 etc/mock/*kwizart.cfg %{buildroot}%{_sysconfdir}/mock
 
 
 %files
