@@ -1,25 +1,29 @@
 VERSION = 25.1
 
-default: release-free release-nonfree release-kwizart
+default: update release-free release-nonfree release-kwizart
 
-release-free : 
+update:
+	./round.sh
+	./el-round.sh
+
+release-free :
 	sed -e's|@VERSION@|${VERSION}|'\
 		< mock-rpmfusion-free.spec.in \
 		> mock-rpmfusion-free.spec
 	cat CHANGELOG >> mock-rpmfusion-free.spec
-	tar cjvf mock-rpmfusion-free-$(VERSION).tar.bz2 \
-		fedora-*_free.cfg \
-		epel-*_free.cfg \
+	tar cjf mock-rpmfusion-free-$(VERSION).tar.bz2 \
+		etc/mock/fedora-*_free.cfg \
+		etc/mock/epel-*_free.cfg \
 		mock-rpmfusion-free.spec
 
-release-nonfree : 
+release-nonfree :
 	sed -e's|@VERSION@|${VERSION}|'\
 		< mock-rpmfusion-nonfree.spec.in \
 		> mock-rpmfusion-nonfree.spec
 	cat CHANGELOG >> mock-rpmfusion-nonfree.spec
-	tar cjvf mock-rpmfusion-nonfree-$(VERSION).tar.bz2 \
-		fedora-*_nonfree.cfg \
-		epel-*_nonfree.cfg \
+	tar cjf mock-rpmfusion-nonfree-$(VERSION).tar.bz2 \
+		etc/mock/fedora-*_nonfree.cfg \
+		etc/mock/epel-*_nonfree.cfg \
 		mock-rpmfusion-nonfree.spec
 
 release-kwizart :
@@ -27,11 +31,11 @@ release-kwizart :
 		< mock-kwizart.spec.in \
 		> mock-kwizart.spec
 	cat CHANGELOG >> mock-kwizart.spec
-	tar cjvf mock-kwizart-$(VERSION).tar.bz2 \
-		fedora-*kwizart.cfg \
-		epel-*kwizart.cfg \
+	tar cjf mock-kwizart-$(VERSION).tar.bz2 \
+		etc/mock/fedora-*kwizart.cfg \
+		etc/mock/epel-*kwizart.cfg \
 		mock-kwizart*.spec
 
-clean :	
+clean :
 	rm -rf *.spec *.tar.bz2 *~
 

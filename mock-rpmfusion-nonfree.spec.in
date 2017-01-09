@@ -5,9 +5,8 @@ Summary:        Mock config files for the RPM Fusion NonFree Repository
 
 Group:          Development/Tools
 License:        BSD
-URL:            http://rpmfusion.org/
-Source0:        %{name}-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+URL:            https://rpmfusion.org/
+Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/download/%{version}/%{name}-%{version}.tar.bz2
 
 BuildArch:      noarch
 Requires:       mock >= 1.2.19
@@ -25,13 +24,8 @@ Mock config files for the RPM Fusion NonFree Repository
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/mock
-install -pm 0644 *.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+mkdir -p %{buildroot}%{_sysconfdir}/mock
+install -pm 0644 etc/mock/*_nonfree.cfg %{buildroot}%{_sysconfdir}/mock
 
 
 %files
