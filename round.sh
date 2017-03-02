@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le s390x"
-FVERSION="23 24 25 rawhide"
+FVERSION="24 25 26 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 #cd .. ; git clone https://github.com/rpm-software-management/mock ; cd mock
 #git checkout devel
@@ -23,7 +23,7 @@ for arch in $ARCHES ; do
   #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    ffver=26
+    ffver=27
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
     echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
@@ -52,7 +52,7 @@ for arch in $ARCHES ; do
         sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
     fi
   fi
-  mv fedora-${fver}-${arch}-${repo}.cfg etc/mock
+  mv fedora-${fver}-${arch}-${repo}.cfg etc/mock/
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
