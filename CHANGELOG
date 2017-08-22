@@ -1,3 +1,7 @@
+* Tue Aug 22 2017 Sérgio Basto <sergio@serjux.com> - 27.0-1
+- Add configuration files for Fedora 27
+- Remove Configuration files for Fedora 24
+
 * Thu Mar 02 2017 Sérgio Basto <sergio@serjux.com> - 26.0-1
 - Add configuration files for Fedora 26
 - Remove Configuration files for Fedora 23
@@ -144,3 +148,5 @@
 * Thu Dec 18 2008 kwizart < kwizart at gmail.com > - 0.90-1
 - Initial package.
 
+* Tue Aug 22 2017 Sérgio Basto <sergio@serjux.com>
+* Tue Aug 22 2017 Sérgio Basto <sergio@serjux.com>
