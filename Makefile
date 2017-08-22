@@ -2,6 +2,11 @@ VERSION = 27.0
 
 default: update release-free release-nonfree release-kwizart
 
+realone: clean-before-update default
+
+clean-before-update:
+	rm -rf etc/mock/*
+
 update:
 	./round.sh
 	./el-round.sh
