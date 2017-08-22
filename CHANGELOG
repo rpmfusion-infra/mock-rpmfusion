@@ -2,6 +2,9 @@
 - Add configuration files for Fedora 27
 - Remove Configuration files for Fedora 24
 
+* Sun Mar 26 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 26.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Thu Mar 02 2017 Sérgio Basto <sergio@serjux.com> - 26.0-1
 - Add configuration files for Fedora 26
 - Remove Configuration files for Fedora 23
