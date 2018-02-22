@@ -5,7 +5,7 @@ FVERSION="25 26 27 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 #cd .. ; git clone https://github.com/rpm-software-management/mock ; cd mock
 #git checkout devel
-etc_mock=../mock/etc/mock
+etc_mock=../mock/mock-core-configs/etc/mock/
 #to old config uncomment next line
 #etc_mock=/etc/mock
 
