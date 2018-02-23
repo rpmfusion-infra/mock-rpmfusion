@@ -1,12 +1,14 @@
 [rpmfusion-nonfree-rawhide]
 name=RPM Fusion for Fedora Rawhide - Nonfree
 #baseurl=https://download1.rpmfusion.org/nonfree/fedora/development/rawhide/Everything/$basearch/os/
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide&arch=$basearch
 enabled=1
 
 [rpmfusion-nonfree-rawhide-debuginfo]
 name=RPM Fusion for Fedora Rawhide - Nonfree - Debug
 #baseurl=https://download1.rpmfusion.org/nonfree/fedora/development/rawhide/Everything/$basearch/debug/
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide-debug&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide-debug&arch=$basearch
 enabled=0
 
