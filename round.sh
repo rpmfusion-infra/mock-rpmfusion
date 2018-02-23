@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le s390x"
-FVERSION="25 26 27 rawhide"
+FVERSION="26 27 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 #cd .. ; git clone https://github.com/rpm-software-management/mock ; cd mock
 #git checkout devel

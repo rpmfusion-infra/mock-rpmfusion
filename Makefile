@@ -1,4 +1,4 @@
-VERSION = 27.0
+VERSION = 27.1
 
 default: update release-free release-nonfree release-kwizart
 
