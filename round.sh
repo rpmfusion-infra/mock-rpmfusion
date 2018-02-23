@@ -24,6 +24,9 @@ for arch in $ARCHES ; do
   if [ $fver = rawhide ] ; then
     flavour=rawhide
     #ffver=27
+    fver_branch=28
+  else
+    fver_branch=$fver
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
     echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
@@ -32,7 +35,7 @@ for arch in $ARCHES ; do
     continue
   fi
   cp template_init fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|configuration_name|fedora-${fver_branch}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
