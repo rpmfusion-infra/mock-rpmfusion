@@ -17,13 +17,13 @@ for arch in $ARCHES ; do
 #### script
 
   flavour=stable
-  ffver=$fver
+  #ffver=$fver
   #if [ $fver = 21 ] ; then
   #  flavour=branched
   #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    ffver=27
+    #ffver=27
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
     echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
@@ -44,14 +44,14 @@ for arch in $ARCHES ; do
   #git add fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
-  if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
-    if [ "$arch" == "armhfp" -a "${ffver}" -gt "19" ] ; then
-        :
-    else
+  #if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
+    #if [ "$arch" == "armhfp" -a "${ffver}" -gt "19" ] ; then
+    #    :
+    #else
         #echo sed it fedora-${fver}-${arch}-${repo}.cfg
-        sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
-    fi
-  fi
+    #    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
+    #fi
+  #fi
   mv fedora-${fver}-${arch}-${repo}.cfg etc/mock/
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
