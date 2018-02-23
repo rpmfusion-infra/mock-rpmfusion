@@ -1,3 +1,8 @@
+* Fri Feb 23 2018 Sérgio Basto <sergio@serjux.com> - 27.1-1
+- Move rpmfusion buildroot to branch F28
+- Prepare new version and drop F25
+- Fix locations of fedora-secondary arches
+
 * Tue Aug 22 2017 Sérgio Basto <sergio@serjux.com> - 27.0-1
 - Add configuration files for Fedora 27
 - Remove Configuration files for Fedora 24
