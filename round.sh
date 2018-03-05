@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le s390x"
-FVERSION="26 27 rawhide"
+FVERSION="26 27 28 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 #cd .. ; git clone https://github.com/rpm-software-management/mock ; cd mock
 #git checkout devel
@@ -24,7 +24,7 @@ for arch in $ARCHES ; do
   if [ $fver = rawhide ] ; then
     flavour=rawhide
     #ffver=27
-    fver_branch=28
+    fver_branch=29
   else
     fver_branch=$fver
   fi
@@ -35,11 +35,13 @@ for arch in $ARCHES ; do
     continue
   fi
   cp template_init fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|configuration_name|fedora-${fver_branch}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   cat rpmfusion-free-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion-nonfree-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
   fi
+  # to replace releasever in local repos of rawhide before add kwizart-stable-template to file
+  sed -i -e "s|\$releasever|${fver_branch}|g" fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then
     cat kwizart-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
   fi
