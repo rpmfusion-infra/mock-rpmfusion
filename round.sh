@@ -18,9 +18,9 @@ for arch in $ARCHES ; do
 
   flavour=stable
   #ffver=$fver
-  #if [ $fver = 21 ] ; then
-  #  flavour=branched
-  #fi
+  if [ $fver = 28 ] ; then
+    flavour=branched
+  fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
     #ffver=27
