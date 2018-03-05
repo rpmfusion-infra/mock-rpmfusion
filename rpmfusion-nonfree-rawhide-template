@@ -5,6 +5,12 @@ name=RPM Fusion for Fedora Rawhide - Nonfree
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide&arch=$basearch
 enabled=1
 
+[local-nonfree]
+name=RPM Fusion for Fedora Rawhide - Nonfree - Local repo
+baseurl=http://koji.rpmfusion.org/kojifiles/repos/f$releasever-nonfree-build/latest/$basearch/
+cost=2000
+enabled=0
+
 [rpmfusion-nonfree-rawhide-debuginfo]
 name=RPM Fusion for Fedora Rawhide - Nonfree - Debug
 #baseurl=https://download1.rpmfusion.org/nonfree/fedora/development/rawhide/Everything/$basearch/debug/
