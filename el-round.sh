@@ -26,9 +26,9 @@ for arch in $ARCHES ; do
   fi
   cp template_init epel-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|configuration_name|epel-${fver}-${arch}.cfg|g" epel-${fver}-${arch}-${repo}.cfg
-  cat rpmfusion-free-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
+  cat rpmfusion_free-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
-    cat rpmfusion-nonfree-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
+    cat rpmfusion_nonfree-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   fi
   #cat rpmfusion-buildsys-epel-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then

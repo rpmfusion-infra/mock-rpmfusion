@@ -20,6 +20,10 @@ for arch in $ARCHES ; do
   #ffver=$fver
   if [ $fver = 28 ] ; then
     flavour=branched
+    if [ "$repo" = kwizart ] ; then
+      flavour=stable
+      #break
+    fi
   fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
@@ -35,20 +39,21 @@ for arch in $ARCHES ; do
     continue
   fi
   cp template_init fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
-  cat rpmfusion-free-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
-  if [ ! "$repo" = rpmfusion_free ] ; then
-    cat rpmfusion-nonfree-$flavour-template >> fedora-${fver}-${arch}-${repo}.cfg
+  cat ${repo}-${flavour}-template >> fedora-${fver}-${arch}-${repo}.cfg
+  if [ "$repo" = rpmfusion_free ] ; then
+    sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
+  fi
+  if [ "$repo" = rpmfusion_nonfree ] ; then
+    sed -i -e "s|configuration_name|fedora-${fver}-${arch}-rpmfusion_free.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   fi
   # to replace releasever in local repos of rawhide before add kwizart-stable-template to file
   sed -i -e "s|\$releasever|${fver_branch}|g" fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then
-    cat kwizart-stable-template >> fedora-${fver}-${arch}-${repo}.cfg
+    sed -i -e "s|configuration_name|fedora-${fver}-${arch}-rpmfusion_nonfree.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   fi
-  echo "\"\"\"" >> fedora-${fver}-${arch}-${repo}.cfg
-  #git add fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
   sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
+  echo "\"\"\"" >> fedora-${fver}-${arch}-${repo}.cfg
   #if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
     #if [ "$arch" == "armhfp" -a "${ffver}" -gt "19" ] ; then
     #    :
@@ -58,6 +63,7 @@ for arch in $ARCHES ; do
     #fi
   #fi
   mv fedora-${fver}-${arch}-${repo}.cfg etc/mock/
+  #git add etc/mock/fedora-${fver}-${arch}-${repo}.cfg
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
