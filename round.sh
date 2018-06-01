@@ -18,13 +18,13 @@ for arch in $ARCHES ; do
 
   flavour=stable
   #ffver=$fver
-  if [ $fver = 28 ] ; then
-    flavour=branched
-    if [ "$repo" = kwizart ] ; then
-      flavour=stable
-      #break
-    fi
-  fi
+  #if [ $fver = 28 ] ; then
+  #  flavour=branched
+  #  if [ "$repo" = kwizart ] ; then
+  #    flavour=stable
+  #    #break
+  #  fi
+  #fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
     #ffver=27
