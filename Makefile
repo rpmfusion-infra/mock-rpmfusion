@@ -1,4 +1,4 @@
-VERSION = 28.0
+VERSION = 28.1
 
 default: update release-free release-nonfree release-kwizart
 
