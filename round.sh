@@ -1,11 +1,9 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le s390x"
-FVERSION="26 27 28 rawhide"
+ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le"
+FVERSION="27 28 29 rawhide"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
-#cd .. ; git clone https://github.com/rpm-software-management/mock ; cd mock
-#git checkout devel
-etc_mock=../mock/mock-core-configs/etc/mock/
+etc_mock=../mock/mock-core-configs/etc/mock
 #to old config uncomment next line
 #etc_mock=/etc/mock
 
@@ -17,18 +15,16 @@ for arch in $ARCHES ; do
 #### script
 
   flavour=stable
-  #ffver=$fver
-  #if [ $fver = 28 ] ; then
-  #  flavour=branched
-  #  if [ "$repo" = kwizart ] ; then
-  #    flavour=stable
-  #    #break
-  #  fi
-  #fi
+  ffver=$fver
+  if [ $fver = 29 ] ; then
+    flavour=branched
+    if [ "$repo" = kwizart ] ; then
+      flavour=stable
+    fi
+  fi
   if [ $fver = rawhide ] ; then
     flavour=rawhide
-    #ffver=27
-    fver_branch=29
+    fver_branch=30
   else
     fver_branch=$fver
   fi

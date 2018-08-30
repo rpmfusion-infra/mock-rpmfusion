@@ -1,3 +1,8 @@
+* Thu Aug 30 2018 Sérgio Basto <sergio@serjux.com> - 29.0-2
+- Add F29 branch and drop F26
+- Not include s390x configs (RPMFusion don't have it)
+- Include README.txt to help on make these packages.
+
 * Sat Jun 02 2018 Sérgio Basto <sergio@serjux.com> - 28.1-2
 - Fix changelog version
 
