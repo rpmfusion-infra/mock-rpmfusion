@@ -9,7 +9,7 @@ URL:            http://rpms.kwizart.net/
 Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/download/%{version}/%{name}-%{version}.tar.bz2
 
 BuildArch:      noarch
-Requires:       mock >= 1.2.19
+Requires:       mock-core-configs >= @VERSION@
 
 %description
 Mock config files for the rpms.kwizart.net Repository
