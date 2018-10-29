@@ -1,4 +1,4 @@
-VERSION = 29.0
+VERSION = 29.1
 
 default: update release-free release-nonfree release-kwizart
 
