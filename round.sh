@@ -1,7 +1,9 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le"
-FVERSION="27 28 29 rawhide"
+FVERSION="27 28"
+BRANCHED="29"
+RAWHIDE="30"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 etc_mock=../mock/mock-core-configs/etc/mock
 #to old config uncomment next line
@@ -10,23 +12,21 @@ etc_mock=../mock/mock-core-configs/etc/mock
 
 for arch in $ARCHES ; do
   for repo in $REPOS ; do
-    for fver in $FVERSION ; do
+    for fver in $FVERSION $BRANCHED $RAWHIDE ; do
 
 #### script
 
   flavour=stable
-  ffver=$fver
-  if [ $fver = 29 ] ; then
+  fver_number=$fver
+  if [ $fver = "$BRANCHED" ] ; then
     flavour=branched
     if [ "$repo" = kwizart ] ; then
       flavour=stable
     fi
   fi
-  if [ $fver = rawhide ] ; then
+  if [ $fver = $RAWHIDE ] ; then
     flavour=rawhide
-    fver_branch=30
-  else
-    fver_branch=$fver
+    fver=rawhide
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
     echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
@@ -43,7 +43,7 @@ for arch in $ARCHES ; do
     sed -i -e "s|configuration_name|fedora-${fver}-${arch}-rpmfusion_free.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   fi
   # to replace releasever in local repos of rawhide before add kwizart-stable-template to file
-  sed -i -e "s|\$releasever|${fver_branch}|g" fedora-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|\$releasever|${fver_number}|g" fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then
     sed -i -e "s|configuration_name|fedora-${fver}-${arch}-rpmfusion_nonfree.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   fi
@@ -51,7 +51,7 @@ for arch in $ARCHES ; do
   sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
   echo "\"\"\"" >> fedora-${fver}-${arch}-${repo}.cfg
   #if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
-    #if [ "$arch" == "armhfp" -a "${ffver}" -gt "19" ] ; then
+    #if [ "$arch" == "armhfp" -a "${fver_number}" -gt "19" ] ; then
     #    :
     #else
         #echo sed it fedora-${fver}-${arch}-${repo}.cfg
