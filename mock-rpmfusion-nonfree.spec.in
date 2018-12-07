@@ -10,6 +10,7 @@ Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/downl
 
 BuildArch:      noarch
 Requires:       mock-core-configs >= @VERSION@
+Requires:       mock-rpmfusion-free >= @VERSION@
 
 %description
 Mock config files for the RPM Fusion NonFree Repository
