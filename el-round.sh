@@ -17,13 +17,13 @@ for arch in $ARCHES ; do
   flavour=epel
   ffver=$fver
   if [ ! -f ${etc_mock}/epel-${fver}-${arch}.cfg ] ; then
-    echo "doesnt exit ${etc_mock}/epel-${fver}-${arch}.cfg"
+    echo "doesnt exist ${etc_mock}/epel-${fver}-${arch}.cfg"
     # removing obsoleted .cfg
     rm -f epel-${fver}-${arch}-${repo}.cfg
     continue
   fi
   cp template_init epel-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|configuration_name|epel-${fver}-${arch}.cfg|g" epel-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|root_line|config_opts['root'] = 'epel-${fver}-${arch}'|g;s|configuration_name|epel-${fver}-${arch}.cfg|g" epel-${fver}-${arch}-${repo}.cfg
   cat rpmfusion_free-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
     cat rpmfusion_nonfree-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg

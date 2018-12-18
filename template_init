@@ -1,3 +1,4 @@
 include('/etc/mock/configuration_name')
+root_line
 
 config_opts['yum.conf'] += """

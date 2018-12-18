@@ -36,6 +36,7 @@ for arch in $ARCHES ; do
   fi
   cp template_init fedora-${fver}-${arch}-${repo}.cfg
   cat ${repo}-${flavour}-template >> fedora-${fver}-${arch}-${repo}.cfg
+  sed -i -e "s|root_line|config_opts['root'] = 'fedora-${fver}-${arch}'|g" fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = rpmfusion_free ] ; then
     sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   fi
