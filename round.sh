@@ -29,7 +29,7 @@ for arch in $ARCHES ; do
     fver=rawhide
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
-    echo "doesnt exit ${etc_mock}/fedora-${fver}-${arch}.cfg"
+    echo "doesnt exist ${etc_mock}/fedora-${fver}-${arch}.cfg"
     # removing obsoleted .cfg
     rm -f fedora-${fver}-${arch}-${repo}.cfg
     continue

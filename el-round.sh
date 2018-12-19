@@ -17,7 +17,7 @@ for arch in $ARCHES ; do
   flavour=epel
   ffver=$fver
   if [ ! -f ${etc_mock}/epel-${fver}-${arch}.cfg ] ; then
-    echo "doesnt exit ${etc_mock}/epel-${fver}-${arch}.cfg"
+    echo "doesnt exist ${etc_mock}/epel-${fver}-${arch}.cfg"
     # removing obsoleted .cfg
     rm -f epel-${fver}-${arch}-${repo}.cfg
     continue
