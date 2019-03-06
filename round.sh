@@ -18,6 +18,7 @@ for arch in $ARCHES ; do
 
   flavour=stable
   fver_number=$fver
+  fver_alt=$fver
   if [ $fver = "$BRANCHED" ] ; then
     flavour=branched
     if [ "$repo" = kwizart ] ; then
@@ -26,6 +27,9 @@ for arch in $ARCHES ; do
   fi
   if [ $fver = $RAWHIDE ] ; then
     flavour=rawhide
+    # Comment fver_alt when rawhide is pointing to Fedora branched
+    # or uncomment fver_alt when rpmfusion branched is completed
+    #fver_alt=rawhide
     fver=rawhide
   fi
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
@@ -37,7 +41,7 @@ for arch in $ARCHES ; do
   cp template_init fedora-${fver}-${arch}-${repo}.cfg
   cat ${repo}-${flavour}-template >> fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = rpmfusion_free ] ; then
-    sed -i -e "s|configuration_name|fedora-${fver}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
+    sed -i -e "s|configuration_name|fedora-${fver_alt}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
     sed -i -e "s|configuration_name|fedora-${fver}-${arch}-rpmfusion_free.cfg|g" fedora-${fver}-${arch}-${repo}.cfg

@@ -6,17 +6,22 @@ git reset --hard %{name}-%{version}
 (example  git reset --hard mock-core-configs-29.2-1)
 popd
 popd
+
+Phase 2:
 edit Makefile set VERSION
 edit round.sh (for epel 8 edit el-round.sh)
 to have changelog
 rpmdev-bumpspec -c "F29 Branch" mock-rpmfusion-free.spec
 edit mock-rpmfusion-free.spec and copy differences to CHANGELOG
+- check if all good:
 make
 git status
+- commit just code changes:
 rm -rf etc/mock/*
 git checkout etc/mock/
 git diff
 git commit .
+
 make realone (etc/mock deleted and regenerated)
 git add etc/mock/*cfg
 git commit .
