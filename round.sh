@@ -1,8 +1,8 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 armhfp ppc64 ppc64le"
-FVERSION="27 28 29"
-BRANCHED="30"
+FVERSION="27 28 29 30"
+BRANCHED=""
 RAWHIDE="31"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 etc_mock=../mock/mock-core-configs/etc/mock
@@ -27,8 +27,8 @@ for arch in $ARCHES ; do
   fi
   if [ $fver = $RAWHIDE ] ; then
     flavour=rawhide
-    # Comment fver_alt when rawhide is pointing to Fedora branched
-    # or uncomment fver_alt when rpmfusion branched is completed
+    # Comment fver_alt when RPMFusion rawhide is pointing to Fedora branched
+    # or uncomment fver_alt when RPMFusion is branched like Fedora
     fver_alt=rawhide
     fver=rawhide
   fi

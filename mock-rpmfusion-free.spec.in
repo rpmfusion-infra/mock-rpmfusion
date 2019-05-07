@@ -9,7 +9,7 @@ URL:            https://rpmfusion.org/
 Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/download/%{version}/%{name}-%{version}.tar.bz2
 
 BuildArch:      noarch
-Requires:       mock-core-configs >= @VERSION@
+Requires:       mock-core-configs >= 30
 
 %description
 Mock config files for the RPM Fusion Free Repository

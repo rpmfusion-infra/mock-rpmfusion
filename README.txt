@@ -17,7 +17,6 @@ edit mock-rpmfusion-free.spec and copy differences to CHANGELOG
 make
 git status
 - commit just code changes:
-rm -rf etc/mock/*
 git checkout etc/mock/
 git diff
 git commit .
