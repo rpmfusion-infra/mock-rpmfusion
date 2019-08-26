@@ -1,10 +1,11 @@
 # Source is created by
 pushd ..
 git clone https://github.com/rpm-software-management/mock.git
-pushd mock/mock-core-configs
+popd
+pushd ../mock/mock-core-configs
+git tag | grep mock-core-configs
 git reset --hard %{name}-%{version}
 (example  git reset --hard mock-core-configs-29.2-1)
-popd
 popd
 
 Phase 2:
@@ -24,7 +25,9 @@ git commit .
 make realone (etc/mock deleted and regenerated)
 git add etc/mock/*cfg
 git commit .
+git push
 
+Phase 3:
 Go to github and add a new release
 tag equal to Makefile VERSION
 VERSION=29.1
@@ -59,7 +62,7 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build
 cat ../../hist.txt
+git checkout f30 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f29 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f28 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f27 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master

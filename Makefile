@@ -1,4 +1,4 @@
-VERSION = 30.2
+VERSION = 31.0
 
 default: update release-free release-nonfree release-kwizart
 
