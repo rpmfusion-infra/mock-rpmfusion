@@ -41,13 +41,13 @@ cd -
 cp mock-rpmfusion-free.spec ../../mock-rpmfusion-free/
 cd ../../mock-rpmfusion-free/
 spectool -g mock-rpmfusion-free.spec
-diff ./mock-rpmfusion-free-$VERSION.tar.bz2 /home/sergio/rpmfusion/new/mock-rpmfusion-free/
+diff ./mock-rpmfusion-free-$VERSION.tar.bz2 /home/sergio/rpmfusion/new/mock-rpmfusion-free/ -s
 #to test
 rfpkg srpm && mock -r fedora-27-x86_64-rpmfusion_free --no-clean --rebuild mock-rpmfusion-free-$VERSION-1.fc30.src.rpm
 rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
 rfpkg ci -c
 git show
-rfpkg push && rfpkg build
+rfpkg push && rfpkg build --nowait
 cd -
 
 cd /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
@@ -57,13 +57,14 @@ cd -
 cp mock-rpmfusion-nonfree.spec /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
 cd /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
 spectool -g mock-rpmfusion-nonfree.spec
-diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
+diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/ -s
 rfpkg new-sources ./mock-rpmfusion-nonfree-$VERSION.tar.bz2
 rfpkg ci -c
 git show
-rfpkg push && rfpkg build
-cat ../../hist.txt
+rfpkg push && rfpkg build --nowait
+
 git checkout f31 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f30 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f29 && git merge master && git push && rfpkg build --nowait; git checkout master
+git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master
