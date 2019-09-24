@@ -48,6 +48,7 @@ rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
 rfpkg ci -c
 git show
 rfpkg push && rfpkg build
+cd -
 
 cd /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
 git checkout master
@@ -62,7 +63,7 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build
 cat ../../hist.txt
+git checkout f31 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f30 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f29 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f28 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master

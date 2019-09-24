@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 ppc64 ppc64le"
-FVERSION="6 7"
+ARCHES="i386 x86_64 aarch64 ppc64 ppc64le"
+FVERSION="6 7 8"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 etc_mock=../mock/mock-core-configs/etc/mock
 #to old config uncomment next line
@@ -20,6 +20,10 @@ for arch in $ARCHES ; do
     echo "doesnt exist ${etc_mock}/epel-${fver}-${arch}.cfg"
     # removing obsoleted .cfg
     rm -f epel-${fver}-${arch}-${repo}.cfg
+    continue
+  fi
+  # RPMFusion el7 don't have aarch64 builders
+  if [ "$arch" == "aarch64" -a "${fver}" -lt "8" ] ; then
     continue
   fi
   cp template_init epel-${fver}-${arch}-${repo}.cfg
