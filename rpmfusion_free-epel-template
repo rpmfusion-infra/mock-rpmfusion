@@ -13,12 +13,14 @@ enabled=1
 [local-free]
 name=RPM Fusion for EL $releasever - Free - Local repo
 baseurl=https://koji.rpmfusion.org/kojifiles/repos/el$releasever-free-build/latest/$basearch/
+sslcacert=/etc/mock/rpmfusion-server-ca.cert
 cost=2000
 enabled=0
 
 [buildsys-override-free]
 name=RPM Fusion for EL $releasever - Free - Buildsys override
 baseurl=https://koji.rpmfusion.org/buildsys-override/el$releasever-free/$basearch/
+sslcacert=/etc/mock/rpmfusion-server-ca.cert
 cost=2000
 enabled=0
 
