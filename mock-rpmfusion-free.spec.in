@@ -6,6 +6,7 @@ Summary:        Mock config files for the RPM Fusion Free Repository
 License:        BSD
 URL:            https://rpmfusion.org/
 Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/download/%{version}/%{name}-%{version}.tar.bz2
+Source1:        https://admin.rpmfusion.org/accounts/rpmfusion-server-ca.cert
 
 BuildArch:      noarch
 Requires:       mock-core-configs >= 30
@@ -25,10 +26,12 @@ Mock config files for the RPM Fusion Free Repository
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/mock
 install -pm 0644 etc/mock/*_free.cfg %{buildroot}%{_sysconfdir}/mock
+install -pm 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/mock/rpmfusion-server-ca.cert
 
 
 %files
 %config(noreplace) %{_sysconfdir}/mock/*_free.cfg
+%config(noreplace) %{_sysconfdir}/mock/rpmfusion-server-ca.cert
 
 
 %changelog
