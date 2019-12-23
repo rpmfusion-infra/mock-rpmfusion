@@ -7,7 +7,7 @@ enabled=1
 
 [local-free]
 name=RPM Fusion for Fedora Rawhide - Free - Local repo
-baseurl=http://koji.rpmfusion.org/kojifiles/repos/f$releasever-free-build/latest/$basearch/
+baseurl=https://koji.rpmfusion.org/kojifiles/repos/f$releasever-free-build/latest/$basearch/
 cost=2000
 enabled=0
 
