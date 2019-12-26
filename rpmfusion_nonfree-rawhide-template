@@ -7,7 +7,8 @@ enabled=1
 
 [local-nonfree]
 name=RPM Fusion for Fedora Rawhide - Nonfree - Local repo
-baseurl=http://koji.rpmfusion.org/kojifiles/repos/f$releasever-nonfree-build/latest/$basearch/
+baseurl=https://koji.rpmfusion.org/kojifiles/repos/f$releasever-nonfree-build/latest/$basearch/
+sslcacert=/etc/pki/mock/rpmfusion-server-ca.cert
 cost=2000
 enabled=0
 

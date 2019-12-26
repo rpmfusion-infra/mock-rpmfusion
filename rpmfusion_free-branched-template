@@ -47,13 +47,14 @@ enabled=0
 [local-free]
 name=RPM Fusion for Fedora $releasever - Free - Local repo
 baseurl=https://koji.rpmfusion.org/kojifiles/repos/f$releasever-free-build/latest/$basearch/
+sslcacert=/etc/pki/mock/rpmfusion-server-ca.cert
 cost=2000
 enabled=0
 
-# I dono if we got build override in Branched repo
-#[buildsys-override-free]
-#name=RPM Fusion for Fedora $releasever - Free - Buildsys override
-#baseurl=https://koji.rpmfusion.org/buildsys-override/f$releasever-free/$basearch/
-#cost=2000
-#enabled=0
+[buildsys-override-free]
+name=RPM Fusion for Fedora $releasever - Free - Buildsys override
+baseurl=https://koji.rpmfusion.org/buildsys-override/f$releasever-free/$basearch/
+sslcacert=/etc/pki/mock/rpmfusion-server-ca.cert
+cost=2000
+enabled=0
 
