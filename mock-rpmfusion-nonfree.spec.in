@@ -3,7 +3,6 @@ Version:        @VERSION@
 Release:        1%{?dist}
 Summary:        Mock config files for the RPM Fusion NonFree Repository
 
-Group:          Development/Tools
 License:        BSD
 URL:            https://rpmfusion.org/
 Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/download/%{version}/%{name}-%{version}.tar.bz2
@@ -29,7 +28,6 @@ install -pm 0644 etc/mock/*_nonfree.cfg %{buildroot}%{_sysconfdir}/mock
 
 
 %files
-%defattr(-,root,root,-)
 %config(noreplace) %{_sysconfdir}/mock/*_nonfree.cfg
 
 
