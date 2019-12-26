@@ -44,7 +44,7 @@ spectool -g mock-rpmfusion-free.spec
 diff ./mock-rpmfusion-free-$VERSION.tar.bz2 /home/sergio/rpmfusion/new/mock-rpmfusion-free/ -s
 #to test
 rfpkg srpm && mock -r fedora-27-x86_64-rpmfusion_free --no-clean --rebuild mock-rpmfusion-free-$VERSION-1.fc30.src.rpm
-rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
+rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2 rpmfusion-server-ca.cert
 rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait

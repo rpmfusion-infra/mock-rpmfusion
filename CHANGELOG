@@ -1,6 +1,9 @@
 * Thu Dec 26 2019 Sérgio Basto <sergio@serjux.com> - 31.2-1
 - Allow --enablerepo=rpmfusion-{non,}free-override to work out of the box
 
+* Tue Sep 24 2019 Sérgio Basto <sergio@serjux.com> - 31.1-2
+- Requires mock-core-configs >= 31.4
+
 * Tue Sep 24 2019 Sérgio Basto <sergio@serjux.com> - 31.1-1
 - And Centos 8
 

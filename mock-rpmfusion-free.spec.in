@@ -26,6 +26,7 @@ Mock config files for the RPM Fusion Free Repository
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/mock
 install -pm 0644 etc/mock/*_free.cfg %{buildroot}%{_sysconfdir}/mock
+mkdir -p %{buildroot}%{_sysconfdir}/pki/mock/
 install -pm 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/mock/rpmfusion-server-ca.cert
 
 
