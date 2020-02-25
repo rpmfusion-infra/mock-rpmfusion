@@ -1,3 +1,3 @@
 include('/etc/mock/configuration_name')
 
-config_opts['dnf.conf'] += """
+config_opts['yum.conf'] += """

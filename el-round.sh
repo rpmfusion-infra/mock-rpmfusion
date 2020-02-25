@@ -26,7 +26,11 @@ for arch in $ARCHES ; do
   if [ "$arch" == "aarch64" -a "${fver}" -lt "8" ] ; then
     continue
   fi
-  cp template_init epel-${fver}-${arch}-${repo}.cfg
+  if [ "${fver}" -lt "8" ]; then
+      cp template_yum_init epel-${fver}-${arch}-${repo}.cfg
+  else
+      cp template_init epel-${fver}-${arch}-${repo}.cfg
+  fi
   sed -i -e "s|configuration_name|epel-${fver}-${arch}.cfg|g" epel-${fver}-${arch}-${repo}.cfg
   cat rpmfusion_free-$flavour-template >> epel-${fver}-${arch}-${repo}.cfg
   if [ ! "$repo" = rpmfusion_free ] ; then
