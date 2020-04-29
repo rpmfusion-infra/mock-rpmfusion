@@ -3,29 +3,30 @@ pushd ..
 git clone https://github.com/rpm-software-management/mock.git
 popd
 pushd ../mock/mock-core-configs
-git tag | grep mock-core-configs
+git tag | grep mock-core-configs | tail -n1
 git reset --hard %{name}-%{version}
 (example  git reset --hard mock-core-configs-29.2-1)
 popd
 
 Phase 2:
-edit Makefile set VERSION
-edit round.sh (for epel 8 edit el-round.sh)
-to have changelog
+Set VERSION on Makefile
+Edit round.sh and or edit el-round.sh ( for epel8 )
+To have changelog , you may need run make to have mock-rpmfusion-free.spec
 rpmdev-bumpspec -c "F29 Branch" mock-rpmfusion-free.spec
-edit mock-rpmfusion-free.spec and copy differences to CHANGELOG
-- check if all good:
-make
-git status
-- commit just code changes:
-git checkout etc/mock/
-git diff
-git commit .
+Edit CHANGELOG with result of rpmdev-bumpspec
+To check if all good:
+  make
+  git status
+TO commit just code changes:
+  git checkout etc/mock/
+  git diff
+  git commit .
 
-make realone (etc/mock deleted and regenerated)
-git add etc/mock/*cfg
-git commit .
-git push
+To commit the generated configurations:
+  make realone (etc/mock deleted and regenerated)
+  git add etc/mock/*cfg
+  git commit .
+  git push
 
 Phase 3:
 Go to github and add a new release
