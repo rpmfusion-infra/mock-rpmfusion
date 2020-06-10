@@ -29,12 +29,14 @@ To commit the generated configurations:
   git push
 
 Phase 3:
-Go to github and add a new release
+Go to https://github.com/rpmfusion-infra/mock-rpmfusion/releases and add a new release
 tag equal to Makefile VERSION
-VERSION=29.1
+
+Set bash terminal the actual version that we want to build for example:
+VERSION=32.2
 upload mock-kwizart-$VERSION.tar.bz2, mock-rpmfusion-free-$VERSION.tar.bz2 and mock-rpmfusion-nonfree-$VERISON.tar.bz2
 
-Build packages
+Build free package:
 cd ../../mock-rpmfusion-free/
 git checkout master
 git pull
@@ -51,6 +53,7 @@ git show
 rfpkg push && rfpkg build --nowait
 cd -
 
+Build nonfree package:
 cd /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
 git checkout master
 git pull
@@ -64,8 +67,8 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 
+git checkout f32 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f31 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f30 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f29 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master
