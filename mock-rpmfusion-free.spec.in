@@ -9,7 +9,7 @@ Source0:        https://github.com/rpmfusion-infra/mock-rpmfusion/releases/downl
 Source1:        https://admin.rpmfusion.org/accounts/rpmfusion-server-ca.cert
 
 BuildArch:      noarch
-Requires:       mock >= 2.0
+Requires:       mock-core-configs > 32.7
 
 %description
 Mock config files for the RPM Fusion Free Repository

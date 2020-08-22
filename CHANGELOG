@@ -1,3 +1,6 @@
+* Sat Aug 22 2020 Sérgio Basto <sergio@serjux.com> - 33.0-1
+- F33 Branch
+
 * Wed Jun 10 2020 Sérgio Basto <sergio@serjux.com> - 32.3-1
 - Make sslcacert on mock configurations work again
 
