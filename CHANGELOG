@@ -1,3 +1,7 @@
+* Sun Jan 17 2021 Sérgio Basto <sergio@serjux.com> - 33.2-1
+- Remove sslcacert on mock configurations because we don't need it anymore,
+  koji have a LE certificate
+
 * Fri Oct 16 2020 Sérgio Basto <sergio@serjux.com> - 33.1-1
 - F33 GA
 
