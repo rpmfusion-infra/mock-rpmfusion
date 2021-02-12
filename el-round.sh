@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 aarch64 ppc64 ppc64le"
-FVERSION="6 7 8"
+ARCHES="x86_64 aarch64 ppc64 ppc64le"
+FVERSION="7 8"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 etc_mock=../mock/mock-core-configs/etc/mock
 #to old config uncomment next line
