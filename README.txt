@@ -6,7 +6,7 @@ pushd ../mock/mock-core-configs
 git pull
 git tag | grep mock-core-configs | tail -n1
 git reset --hard %{name}-%{version}
-(example  git reset --hard mock-core-configs-29.2-1)
+(example:  git reset --hard mock-core-configs-29.2-1)
 popd
 
 Phase 2:
@@ -69,8 +69,8 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 
+git checkout f34 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f33 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f32 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f31 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master
