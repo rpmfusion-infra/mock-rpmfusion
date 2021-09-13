@@ -1,4 +1,4 @@
-VERSION=35.0
+VERSION=35.1
 
 default: update release-free release-nonfree release-kwizart
 

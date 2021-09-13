@@ -43,12 +43,13 @@ cd ../../mock-rpmfusion-free/
 git checkout master
 git pull
 cd -
+diff mock-rpmfusion-free.spec ../../mock-rpmfusion-free/ -s
 cp mock-rpmfusion-free.spec ../../mock-rpmfusion-free/
 cd ../../mock-rpmfusion-free/
 spectool -g mock-rpmfusion-free.spec
-diff ./mock-rpmfusion-free-$VERSION.tar.bz2 /home/sergio/rpmfusion/new/mock-rpmfusion-free/ -s
+diff ./mock-rpmfusion-free-$VERSION.tar.bz2 ../../mock-rpmfusion-free/ -s
 #to test
-rfpkg srpm && mock -r fedora-32-x86_64-rpmfusion_free --no-clean --rebuild mock-rpmfusion-free-$VERSION-1.fc34.src.rpm
+rfpkg srpm && mock -r fedora-rawhide-x86_64-rpmfusion_free --no-clean --rebuild mock-rpmfusion-free-$VERSION-1.fc36.src.rpm
 rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
 rfpkg ci -c
 git show
@@ -56,21 +57,22 @@ rfpkg push && rfpkg build --nowait
 cd -
 
 Build nonfree package:
-cd /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
+cd ../../nonfree/mock-rpmfusion-nonfree/
 git checkout master
 git pull
 cd -
-cp mock-rpmfusion-nonfree.spec /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
-cd /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/
+diff mock-rpmfusion-nonfree.spec ../../nonfree/mock-rpmfusion-nonfree/ -s
+cp mock-rpmfusion-nonfree.spec ../../nonfree/mock-rpmfusion-nonfree/
+cd ../../nonfree/mock-rpmfusion-nonfree/
 spectool -g mock-rpmfusion-nonfree.spec
-diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 /home/sergio/rpmfusion/new/nonfree/mock-rpmfusion-nonfree/ -s
+diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 ../../nonfree/mock-rpmfusion-nonfree/ -s
 rfpkg new-sources ./mock-rpmfusion-nonfree-$VERSION.tar.bz2
 rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 
+git checkout f35 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f34 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f33 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f32 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master
