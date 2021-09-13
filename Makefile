@@ -1,4 +1,5 @@
 VERSION=35.1
+RELEASE=1
 
 default: update release-free release-nonfree release-kwizart
 
@@ -12,7 +13,7 @@ update:
 	./el-round.sh
 
 release-free :
-	sed -e's|@VERSION@|${VERSION}|'\
+	sed -e"s|@VERSION@|${VERSION}|; s|@RELEASE@|${RELEASE}|"\
 		< mock-rpmfusion-free.spec.in \
 		> mock-rpmfusion-free.spec
 	cat CHANGELOG >> mock-rpmfusion-free.spec
@@ -22,7 +23,7 @@ release-free :
 		mock-rpmfusion-free.spec
 
 release-nonfree :
-	sed -e's|@VERSION@|${VERSION}|'\
+	sed -e"s|@VERSION@|${VERSION}|; s|@RELEASE@|${RELEASE}|"\
 		< mock-rpmfusion-nonfree.spec.in \
 		> mock-rpmfusion-nonfree.spec
 	cat CHANGELOG >> mock-rpmfusion-nonfree.spec
@@ -32,7 +33,7 @@ release-nonfree :
 		mock-rpmfusion-nonfree.spec
 
 release-kwizart :
-	sed -e's|@VERSION@|${VERSION}|'\
+	sed -e"s|@VERSION@|${VERSION}|; s|@RELEASE@|${RELEASE}|"\
 		< mock-kwizart.spec.in \
 		> mock-kwizart.spec
 	cat CHANGELOG >> mock-kwizart.spec

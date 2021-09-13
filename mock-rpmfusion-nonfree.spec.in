@@ -1,6 +1,6 @@
 Name:           mock-rpmfusion-nonfree
 Version:        @VERSION@
-Release:        1%{?dist}
+Release:        @RELEASE@%{?dist}
 Summary:        Mock config files for the RPM Fusion NonFree Repository
 
 License:        BSD

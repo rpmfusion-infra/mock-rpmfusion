@@ -1,6 +1,6 @@
 Name:           mock-kwizart
 Version:        @VERSION@
-Release:        1%{?dist}
+Release:        @RELEASE@%{?dist}
 Summary:        Mock config files for the rpms.kwizart.net Repository
 
 Group:          Development/Tools
