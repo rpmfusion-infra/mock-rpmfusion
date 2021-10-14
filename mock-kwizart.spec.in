@@ -26,11 +26,14 @@ Mock config files for the rpms.kwizart.net Repository
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/mock
 install -pm 0644 etc/mock/*kwizart.cfg %{buildroot}%{_sysconfdir}/mock
+mkdir -p %{buildroot}%{_sysconfdir}/mock/templates
+install -pm 0644 etc/mock/templates/*.tpl %{buildroot}%{_sysconfdir}/mock/templates
 
 
 %files
 %defattr(-,root,root,-)
 %config(noreplace) %{_sysconfdir}/mock/*kwizart.cfg
+%config(noreplace) %{_sysconfdir}/mock/templates/*.tpl
 
 
 %changelog

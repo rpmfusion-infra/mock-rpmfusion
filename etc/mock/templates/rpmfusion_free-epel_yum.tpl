@@ -1,3 +1,4 @@
+config_opts['yum.conf'] += """
 [rpmfusion-free-updates]
 name=RPM Fusion for EL $releasever - Free - Updates
 #baseurl=https://download1.rpmfusion.org/free/el/updates/$releasever/$basearch/
@@ -25,4 +26,5 @@ name=RPM Fusion for EL $releasever - Free - Buildsys override
 baseurl=https://koji.rpmfusion.org/buildsys-override/el$releasever-free/$basearch/
 cost=2000
 enabled=0
+"""
 

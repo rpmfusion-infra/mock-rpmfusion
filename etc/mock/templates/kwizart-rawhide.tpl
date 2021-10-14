@@ -1,3 +1,4 @@
+config_opts['dnf.conf'] += """
 [kwizart]
 name=kwizart for Fedora rawhide - $basearch - Base
 baseurl=http://rpms.kwizart.net/fedora/rawhide/$basearch/
@@ -17,4 +18,5 @@ enabled=0
 name=kwizart-pending for Fedora rawhide - $basearch - Base
 baseurl=http://rpms.kwizart.net/fedora/pending/rawhide/
 enabled=0
+"""
 

@@ -6,7 +6,8 @@ BRANCHED="35"
 RAWHIDE="36"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
 etc_mock=../mock/mock-core-configs/etc/mock
-#to old config uncomment next line
+# uncomment the next line to compare mock fedora configurations on /etc/mock
+# with mock rpmfusion configuration
 #etc_mock=/etc/mock
 
 
@@ -32,28 +33,30 @@ for arch in $ARCHES ; do
     fver_alt=rawhide
     fver=rawhide
   fi
+
+  # removing obsoleted .cfg
   if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
     echo "doesnt exist ${etc_mock}/fedora-${fver}-${arch}.cfg"
-    # removing obsoleted .cfg
     rm -f fedora-${fver}-${arch}-${repo}.cfg
     continue
   fi
-  cp template_init fedora-${fver}-${arch}-${repo}.cfg
-  cat ${repo}-${flavour}-template >> fedora-${fver}-${arch}-${repo}.cfg
+
   if [ "$repo" = rpmfusion_free ] ; then
-    sed -i -e "s|configuration_name|fedora-${fver_alt}-${arch}.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('fedora-${fver_alt}-${arch}.cfg')" > fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> fedora-${fver}-${arch}-${repo}.cfg
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    sed -i -e "s|configuration_name|fedora-${fver}-${arch}-rpmfusion_free.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('fedora-${fver}-${arch}-rpmfusion_free.cfg')" > fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> fedora-${fver}-${arch}-${repo}.cfg
   fi
   # to replace releasever in local repos of rawhide before add kwizart-stable-template to file
-  sed -i -e "s|\$releasever|${fver_number}|g" fedora-${fver}-${arch}-${repo}.cfg
+#  sed -i -e "s|\$releasever|${fver_number}|g" fedora-${fver}-${arch}-${repo}.cfg
   if [ "$repo" = kwizart ] ; then
-    sed -i -e "s|configuration_name|fedora-${fver}-${arch}-rpmfusion_nonfree.cfg|g" fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('fedora-${fver}-${arch}-rpmfusion_nonfree.cfg')" > fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/kwizart-${flavour}.tpl')" >> fedora-${fver}-${arch}-${repo}.cfg
   fi
-  sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
-  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
-  echo "\"\"\"" >> fedora-${fver}-${arch}-${repo}.cfg
+#  sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
+#  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
   #if [  ! $arch == i386 -a ! $arch == x86_64 ] ; then
     #if [ "$arch" == "armhfp" -a "${fver_number}" -gt "19" ] ; then
     #    :
