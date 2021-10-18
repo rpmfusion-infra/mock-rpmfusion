@@ -1,3 +1,4 @@
+config_opts['dnf.conf'] += """
 [rpmfusion-nonfree-updates]
 name=RPM Fusion for EL $releasever - Nonfree - Updates
 #baseurl=https://download1.rpmfusion.org/nonfree/el/updates/$releasever/$basearch/
@@ -25,4 +26,5 @@ name=RPM Fusion for EL $releasever - NonFree - Buildsys override
 baseurl=https://koji.rpmfusion.org/buildsys-override/el$releasever-nonfree/$basearch/
 cost=2000
 enabled=0
+"""
 

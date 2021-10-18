@@ -1,3 +1,4 @@
+config_opts['dnf.conf'] += """
 [rpmfusion-nonfree-rawhide]
 name=RPM Fusion for Fedora Rawhide - Nonfree
 #baseurl=https://download1.rpmfusion.org/nonfree/fedora/development/rawhide/Everything/$basearch/os/
@@ -27,4 +28,5 @@ name=RPM Fusion for Fedora $releasever - Nonfree - Buildsys override
 baseurl=https://koji.rpmfusion.org/buildsys-override/f$releasever-nonfree/$basearch/
 cost=2000
 enabled=0
+"""
 

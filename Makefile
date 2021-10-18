@@ -1,4 +1,4 @@
-VERSION=35.1
+VERSION=35.2
 RELEASE=1
 
 default: update release-free release-nonfree release-kwizart
@@ -6,7 +6,7 @@ default: update release-free release-nonfree release-kwizart
 realone: clean-before-update default
 
 clean-before-update:
-	rm -rf etc/mock/*
+	rm -rf etc/mock/*cfg
 
 update:
 	./round.sh
@@ -18,8 +18,8 @@ release-free :
 		> mock-rpmfusion-free.spec
 	cat CHANGELOG >> mock-rpmfusion-free.spec
 	tar cjf mock-rpmfusion-free-$(VERSION).tar.bz2 \
-		etc/mock/fedora-*_free.cfg \
-		etc/mock/epel-*_free.cfg \
+		etc/mock/*_free.cfg \
+		etc/mock/templates/rpmfusion_free*.tpl \
 		mock-rpmfusion-free.spec
 
 release-nonfree :
@@ -28,8 +28,8 @@ release-nonfree :
 		> mock-rpmfusion-nonfree.spec
 	cat CHANGELOG >> mock-rpmfusion-nonfree.spec
 	tar cjf mock-rpmfusion-nonfree-$(VERSION).tar.bz2 \
-		etc/mock/fedora-*_nonfree.cfg \
-		etc/mock/epel-*_nonfree.cfg \
+		etc/mock/*_nonfree.cfg \
+		etc/mock/templates/rpmfusion_nonfree*.tpl \
 		mock-rpmfusion-nonfree.spec
 
 release-kwizart :
@@ -38,8 +38,8 @@ release-kwizart :
 		> mock-kwizart.spec
 	cat CHANGELOG >> mock-kwizart.spec
 	tar cjf mock-kwizart-$(VERSION).tar.bz2 \
-		etc/mock/fedora-*kwizart.cfg \
-		etc/mock/epel-*kwizart.cfg \
+		etc/mock/*kwizart.cfg \
+		etc/mock/templates/kwizart*.tpl \
 		mock-kwizart*.spec
 
 clean :
