@@ -48,6 +48,7 @@ cp mock-rpmfusion-free.spec ../../mock-rpmfusion-free/
 cd ../../mock-rpmfusion-free/
 spectool -g mock-rpmfusion-free.spec
 diff ./mock-rpmfusion-free-$VERSION.tar.bz2 ../../mock-rpmfusion-free/ -s
+cd -
 #to test
 rfpkg srpm && mock -r fedora-rawhide-x86_64-rpmfusion_free --no-clean --rebuild mock-rpmfusion-free-$VERSION-1.fc36.src.rpm
 rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
@@ -66,6 +67,7 @@ cp mock-rpmfusion-nonfree.spec ../../nonfree/mock-rpmfusion-nonfree/
 cd ../../nonfree/mock-rpmfusion-nonfree/
 spectool -g mock-rpmfusion-nonfree.spec
 diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 ../../nonfree/mock-rpmfusion-nonfree/ -s
+cd -
 rfpkg new-sources ./mock-rpmfusion-nonfree-$VERSION.tar.bz2
 rfpkg ci -c
 git show
