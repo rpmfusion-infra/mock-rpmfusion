@@ -3,6 +3,7 @@
 ARCHES="x86_64 aarch64 ppc64le"
 FVERSION="7 8"
 REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
+FLAVOUR="epel"
 etc_mock=../mock/mock-core-configs/etc/mock
 # uncomment the next line to compare mock fedora configurations on /etc/mock
 # with mock rpmfusion configuration
@@ -12,15 +13,15 @@ etc_mock=../mock/mock-core-configs/etc/mock
 for arch in $ARCHES ; do
   for repo in $REPOS ; do
     for fver in $FVERSION ; do
+      for flavour in $FLAVOUR; do
 
 #### script
-  flavour=epel
   ffver=$fver
 
   # removing obsoleted .cfg
-  if [ ! -f ${etc_mock}/epel-${fver}-${arch}.cfg ] ; then
-    echo "doesnt exist ${etc_mock}/epel-${fver}-${arch}.cfg"
-    rm -f epel-${fver}-${arch}-${repo}.cfg
+  if [ ! -f ${etc_mock}/${flavour}-${fver}-${arch}.cfg ] ; then
+    echo "doesnt exist ${etc_mock}/${flavour}-${fver}-${arch}.cfg"
+    rm -f ${flavour}-${fver}-${arch}-${repo}.cfg
     continue
   fi
   # RPMFusion el7 don't have aarch64 builders
@@ -33,20 +34,20 @@ for arch in $ARCHES ; do
   fi
 
   if [ "$repo" = rpmfusion_free ] ; then
-    echo "include('epel-${fver}-${arch}.cfg')" > epel-${fver}-${arch}-${repo}.cfg
-    echo "include('templates/rpmfusion_free-epel.tpl')" >> epel-${fver}-${arch}-${repo}.cfg
+    echo "include('${flavour}-${fver}-${arch}.cfg')" > ${flavour}-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> ${flavour}-${fver}-${arch}-${repo}.cfg
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    echo "include('epel-${fver}-${arch}-rpmfusion_free.cfg')" > epel-${fver}-${arch}-${repo}.cfg
-    echo "include('templates/rpmfusion_free-epel.tpl')" >> epel-${fver}-${arch}-${repo}.cfg
+    echo "include('${flavour}-${fver}-${arch}-rpmfusion_free.cfg')" > ${flavour}-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> ${flavour}-${fver}-${arch}-${repo}.cfg
   fi
   if [ "$repo" = kwizart ] ; then
-    echo "include('epel-${fver}-${arch}-rpmfusion_nonfree.cfg')" > epel-${fver}-${arch}-${repo}.cfg
-    echo "include('templates/kwizart-epel.tpl')" >> epel-${fver}-${arch}-${repo}.cfg
+    echo "include('${flavour}-${fver}-${arch}-rpmfusion_nonfree.cfg')" > ${flavour}-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/kwizart-${flavour}.tpl')" >> ${flavour}-${fver}-${arch}-${repo}.cfg
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
-    sed -i -e "s|epel.tpl|epel_yum.tpl|g" epel-${fver}-${arch}-${repo}.cfg
+    sed -i -e "s|epel.tpl|epel_yum.tpl|g" ${flavour}-${fver}-${arch}-${repo}.cfg
   fi
 
   #git add fedora-${fver}-${arch}-${repo}.cfg
@@ -57,8 +58,9 @@ for arch in $ARCHES ; do
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
 #done
 
-  mv epel-${fver}-${arch}-${repo}.cfg etc/mock/
+  mv ${flavour}-${fver}-${arch}-${repo}.cfg etc/mock/
 ### /script
+      done
     done
   done
 done
