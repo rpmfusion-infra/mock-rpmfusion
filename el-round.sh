@@ -2,7 +2,7 @@
 
 ARCHES="x86_64 aarch64 ppc64le"
 FVERSION="7 8"
-REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
+REPOS="rpmfusion_free rpmfusion_nonfree"
 FLAVOUR="epel epel-next"
 etc_mock=../mock/mock-core-configs/etc/mock
 # uncomment the next line to compare mock fedora configurations on /etc/mock
@@ -47,14 +47,6 @@ for arch in $ARCHES ; do
       echo "include('${flavour}-${fver}-${arch}-rpmfusion_free.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     fi
     echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
-  fi
-  if [ "$repo" = kwizart ] ; then
-    if [ "${flavour}" = "epel-next" ] ; then
-      echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
-    else
-      echo "include('${flavour}-${fver}-${arch}-rpmfusion_nonfree.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
-    fi
-    echo "include('templates/kwizart-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
