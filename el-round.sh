@@ -16,20 +16,19 @@ for arch in $ARCHES ; do
       for flavour in $FLAVOUR; do
 
 #### script
-  ffver=$fver
 
   # removing obsoleted .cfg
-  if [ ! -f ${etc_mock}/${flavour}-${fver}-${arch}.cfg ] ; then
+  if [ ! -f "${etc_mock}/${flavour}-${fver}-${arch}.cfg" ] ; then
     echo "doesnt exist ${etc_mock}/${flavour}-${fver}-${arch}.cfg"
-    rm -f ${flavour}-${fver}-${arch}-${repo}.cfg
+    rm -f "${flavour}-${fver}-${arch}-${repo}.cfg"
     continue
   fi
   # RPMFusion el7 don't have aarch64 builders
-  if [ "$arch" == "aarch64" -a "${fver}" -lt "8" ] ; then
+  if [ "$arch" = "aarch64" ] && [ "${fver}" -lt "8" ] ; then
     continue
   fi
   # RPMFusion el7 don't have ppc64le builders
-  if [ "$arch" == "ppc64le" -a "${fver}" -lt "8" ] ; then
+  if [ "$arch" = "ppc64le" ] && [ "${fver}" -lt "8" ] ; then
     continue
   fi
 
@@ -37,25 +36,25 @@ for arch in $ARCHES ; do
     if [ "${flavour}" = "epel-next" ] ; then
       echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     else
-      echo "include('${flavour}-${fver}-${arch}.cfg')" > ${flavour}-${fver}-${arch}-${repo}.cfg
+      echo "include('${flavour}-${fver}-${arch}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> ${flavour}-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
     if [ "${flavour}" = "epel-next" ] ; then
       echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     else
-      echo "include('${flavour}-${fver}-${arch}-rpmfusion_free.cfg')" > ${flavour}-${fver}-${arch}-${repo}.cfg
+      echo "include('${flavour}-${fver}-${arch}-rpmfusion_free.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> ${flavour}-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
   fi
   if [ "$repo" = kwizart ] ; then
     if [ "${flavour}" = "epel-next" ] ; then
       echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     else
-      echo "include('${flavour}-${fver}-${arch}-rpmfusion_nonfree.cfg')" > ${flavour}-${fver}-${arch}-${repo}.cfg
+      echo "include('${flavour}-${fver}-${arch}-rpmfusion_nonfree.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     fi
-    echo "include('templates/kwizart-${flavour}.tpl')" >> ${flavour}-${fver}-${arch}-${repo}.cfg
+    echo "include('templates/kwizart-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
@@ -63,7 +62,7 @@ for arch in $ARCHES ; do
     if [ "$flavour" = "epel-next" ] ; then
       continue
     else
-      sed -i -e "s|epel.tpl|epel_yum.tpl|g" ${flavour}-${fver}-${arch}-${repo}.cfg
+      sed -i -e "s|epel.tpl|epel_yum.tpl|g" "${flavour}-${fver}-${arch}-${repo}.cfg"
     fi
   fi
 
@@ -75,7 +74,7 @@ for arch in $ARCHES ; do
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
 #done
 
-  mv ${flavour}-${fver}-${arch}-${repo}.cfg etc/mock/
+  mv "${flavour}-${fver}-${arch}-${repo}.cfg" etc/mock/
 ### /script
       done
     done
