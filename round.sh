@@ -31,7 +31,7 @@ for arch in $ARCHES ; do
   fi
 
   # removing obsoleted .cfg
-  if [ ! -f "${etc_mock}/fedora-${fver}-${arch}.cfg" ] ; then
+  if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/fedora-${fver}-${arch}.cfg" ] ; then
     echo "doesnt exist ${etc_mock}/fedora-${fver}-${arch}.cfg"
     rm -f "fedora-${fver}-${arch}-${repo}.cfg"
     continue
