@@ -32,16 +32,6 @@ release-nonfree :
 		etc/mock/templates/rpmfusion_nonfree*.tpl \
 		mock-rpmfusion-nonfree.spec
 
-release-kwizart :
-	sed -e"s|@VERSION@|${VERSION}|; s|@RELEASE@|${RELEASE}|"\
-		< mock-kwizart.spec.in \
-		> mock-kwizart.spec
-	cat CHANGELOG >> mock-kwizart.spec
-	tar cjf mock-kwizart-$(VERSION).tar.bz2 \
-		etc/mock/*kwizart.cfg \
-		etc/mock/templates/kwizart*.tpl \
-		mock-kwizart*.spec
-
 clean :
 	rm -rf *.spec *.tar.bz2 *~
 

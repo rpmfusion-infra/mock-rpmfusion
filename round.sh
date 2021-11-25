@@ -4,7 +4,7 @@ ARCHES="i386 x86_64 aarch64 armhfp ppc64le"
 FVERSION="33 34 35"
 BRANCHED=""
 RAWHIDE="36"
-REPOS="rpmfusion_free rpmfusion_nonfree kwizart"
+REPOS="rpmfusion_free rpmfusion_nonfree"
 etc_mock=../mock/mock-core-configs/etc/mock
 # uncomment the next line to compare mock fedora configurations on /etc/mock
 # with mock rpmfusion configuration
@@ -22,9 +22,6 @@ for arch in $ARCHES ; do
   fver_alt=$fver
   if [ $fver = "$BRANCHED" ] ; then
     flavour=branched
-    if [ "$repo" = kwizart ] ; then
-      flavour=stable
-    fi
   fi
   if [ $fver = $RAWHIDE ] ; then
     flavour=rawhide
@@ -48,12 +45,6 @@ for arch in $ARCHES ; do
   if [ "$repo" = rpmfusion_nonfree ] ; then
     echo "include('fedora-${fver}-${arch}-rpmfusion_free.cfg')" > fedora-${fver}-${arch}-${repo}.cfg
     echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> fedora-${fver}-${arch}-${repo}.cfg
-  fi
-  # to replace releasever in local repos of rawhide before add kwizart-stable-template to file
-#  sed -i -e "s|\$releasever|${fver_number}|g" fedora-${fver}-${arch}-${repo}.cfg
-  if [ "$repo" = kwizart ] ; then
-    echo "include('fedora-${fver}-${arch}-rpmfusion_nonfree.cfg')" > fedora-${fver}-${arch}-${repo}.cfg
-    echo "include('templates/kwizart-${flavour}.tpl')" >> fedora-${fver}-${arch}-${repo}.cfg
   fi
 #  sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
 #  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
