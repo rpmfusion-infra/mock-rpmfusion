@@ -1,7 +1,7 @@
 VERSION=35.3
 RELEASE=1
 
-default: update release-free release-nonfree release-kwizart
+default: update release-free release-nonfree
 
 realone: clean-before-update default
 

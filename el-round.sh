@@ -18,7 +18,7 @@ for arch in $ARCHES ; do
 #### script
 
   # removing obsoleted .cfg
-  if [ ! -f "${etc_mock}/${flavour}-${fver}-${arch}.cfg" ] ; then
+  if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/${flavour}-${fver}-${arch}.cfg" ] ; then
     echo "doesnt exist ${etc_mock}/${flavour}-${fver}-${arch}.cfg"
     rm -f "${flavour}-${fver}-${arch}-${repo}.cfg"
     continue
