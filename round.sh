@@ -18,12 +18,11 @@ for arch in $ARCHES ; do
 #### script
 
   flavour=stable
-  fver_number=$fver
   fver_alt=$fver
-  if [ $fver = "$BRANCHED" ] ; then
+  if [ "$fver" = "$BRANCHED" ] ; then
     flavour=branched
   fi
-  if [ $fver = $RAWHIDE ] ; then
+  if [ "$fver" = $RAWHIDE ] ; then
     flavour=rawhide
     # Comment fver_alt when RPMFusion rawhide is pointing to Fedora branched
     # or uncomment fver_alt when RPMFusion is branched like Fedora
@@ -32,19 +31,19 @@ for arch in $ARCHES ; do
   fi
 
   # removing obsoleted .cfg
-  if [ ! -f ${etc_mock}/fedora-${fver}-${arch}.cfg ] ; then
+  if [ ! -f "${etc_mock}/fedora-${fver}-${arch}.cfg" ] ; then
     echo "doesnt exist ${etc_mock}/fedora-${fver}-${arch}.cfg"
-    rm -f fedora-${fver}-${arch}-${repo}.cfg
+    rm -f "fedora-${fver}-${arch}-${repo}.cfg"
     continue
   fi
 
   if [ "$repo" = rpmfusion_free ] ; then
-    echo "include('fedora-${fver_alt}-${arch}.cfg')" > fedora-${fver}-${arch}-${repo}.cfg
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('fedora-${fver_alt}-${arch}.cfg')" > "fedora-${fver}-${arch}-${repo}.cfg"
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "fedora-${fver}-${arch}-${repo}.cfg"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    echo "include('fedora-${fver}-${arch}-rpmfusion_free.cfg')" > fedora-${fver}-${arch}-${repo}.cfg
-    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> fedora-${fver}-${arch}-${repo}.cfg
+    echo "include('fedora-${fver}-${arch}-rpmfusion_free.cfg')" > "fedora-${fver}-${arch}-${repo}.cfg"
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "fedora-${fver}-${arch}-${repo}.cfg"
   fi
 #  sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
 #  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
@@ -56,7 +55,7 @@ for arch in $ARCHES ; do
     #    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
     #fi
   #fi
-  mv fedora-${fver}-${arch}-${repo}.cfg etc/mock/
+  mv "fedora-${fver}-${arch}-${repo}.cfg" etc/mock/
   #git add etc/mock/fedora-${fver}-${arch}-${repo}.cfg
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
