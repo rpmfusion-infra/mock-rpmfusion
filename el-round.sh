@@ -20,7 +20,7 @@ for arch in $ARCHES ; do
   # removing obsoleted .cfg
   if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/${flavour}-${fver}-${arch}.cfg" ] ; then
     echo "doesnt exist ${etc_mock}/${flavour}-${fver}-${arch}.cfg"
-    rm -f "${flavour}-${fver}-${arch}-${repo}.cfg"
+    rm -f "${flavour}-${repo}-${fver}-${arch}.cfg"
     continue
   fi
   # RPMFusion el7 don't have aarch64 builders
@@ -34,19 +34,19 @@ for arch in $ARCHES ; do
 
   if [ "$repo" = rpmfusion_free ] ; then
     if [ "${flavour}" = "epel-next" ] ; then
-      echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
+      echo "include('epel-${repo}-${fver}-${arch}.cfg')" > "${flavour}-${repo}-${fver}-${arch}.cfg"
     else
-      echo "include('${flavour}-${fver}-${arch}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
+      echo "include('${flavour}-${fver}-${arch}.cfg')" > "${flavour}-${repo}-${fver}-${arch}.cfg"
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${repo}-${fver}-${arch}.cfg"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
     if [ "${flavour}" = "epel-next" ] ; then
-      echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
+      echo "include('epel-${repo}-${fver}-${arch}.cfg')" > "${flavour}-${repo}-${fver}-${arch}.cfg"
     else
-      echo "include('${flavour}-${fver}-${arch}-rpmfusion_free.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
+      echo "include('${flavour}-${repo}-${fver}-${arch}.cfg')" > "${flavour}-${repo}-${fver}-${arch}.cfg"
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${repo}-${fver}-${arch}.cfg"
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
@@ -54,7 +54,7 @@ for arch in $ARCHES ; do
     if [ "$flavour" = "epel-next" ] ; then
       continue
     else
-      sed -i -e "s|epel.tpl|epel_yum.tpl|g" "${flavour}-${fver}-${arch}-${repo}.cfg"
+      sed -i -e "s|epel.tpl|epel_yum.tpl|g" "${flavour}-${repo}-${fver}-${arch}.cfg"
     fi
   fi
 
@@ -66,7 +66,7 @@ for arch in $ARCHES ; do
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
 #done
 
-  mv "${flavour}-${fver}-${arch}-${repo}.cfg" etc/mock/
+  mv "${flavour}-${repo}-${fver}-${arch}.cfg" etc/mock/
 ### /script
       done
     done

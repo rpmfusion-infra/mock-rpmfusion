@@ -33,17 +33,17 @@ for arch in $ARCHES ; do
   # removing obsoleted .cfg
   if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/fedora-${fver}-${arch}.cfg" ] ; then
     echo "doesnt exist ${etc_mock}/fedora-${fver}-${arch}.cfg"
-    rm -f "fedora-${fver}-${arch}-${repo}.cfg"
+    rm -f "fedora-${repo}-${fver}-${arch}.cfg"
     continue
   fi
 
   if [ "$repo" = rpmfusion_free ] ; then
-    echo "include('fedora-${fver_alt}-${arch}.cfg')" > "fedora-${fver}-${arch}-${repo}.cfg"
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "fedora-${fver}-${arch}-${repo}.cfg"
+    echo "include('fedora-${fver_alt}-${arch}.cfg')" > "fedora-${repo}-${fver}-${arch}.cfg"
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "fedora-${repo}-${fver}-${arch}.cfg"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    echo "include('fedora-${fver}-${arch}-rpmfusion_free.cfg')" > "fedora-${fver}-${arch}-${repo}.cfg"
-    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "fedora-${fver}-${arch}-${repo}.cfg"
+    echo "include('fedora-${fver}-${arch}-rpmfusion_free.cfg')" > "fedora-${repo}-${fver}-${arch}.cfg"
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "fedora-${repo}-${fver}-${arch}.cfg"
   fi
 #  sed -i -e "s|\$basearch|${arch}|g" fedora-${fver}-${arch}-${repo}.cfg
 #  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
@@ -55,7 +55,7 @@ for arch in $ARCHES ; do
     #    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
     #fi
   #fi
-  mv "fedora-${fver}-${arch}-${repo}.cfg" etc/mock/
+  mv "fedora-${repo}-${fver}-${arch}.cfg" etc/mock/
   #git add etc/mock/fedora-${fver}-${arch}-${repo}.cfg
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg

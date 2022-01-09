@@ -23,14 +23,13 @@ Mock config files for the RPM Fusion NonFree Repository
 
 
 %install
-mkdir -p %{buildroot}%{_sysconfdir}/mock
-install -pm 0644 etc/mock/*_nonfree.cfg %{buildroot}%{_sysconfdir}/mock
 mkdir -p %{buildroot}%{_sysconfdir}/mock/templates
-install -pm 0644 etc/mock/templates/*.tpl %{buildroot}%{_sysconfdir}/mock/templates
+install -pm 0644 etc/mock/rpmfusion_nonfree*.cfg %{buildroot}%{_sysconfdir}/mock
+install -pm 0644 etc/mock/templates/rpmfusion_nonfree*.tpl %{buildroot}%{_sysconfdir}/mock/templates
 
 
 %files
-%config(noreplace) %{_sysconfdir}/mock/*_nonfree.cfg
+%config(noreplace) %{_sysconfdir}/mock/*.cfg
 %config(noreplace) %{_sysconfdir}/mock/templates/*.tpl
 
 
