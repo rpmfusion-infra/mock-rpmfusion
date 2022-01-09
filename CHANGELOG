@@ -1,3 +1,8 @@
+* Sun Jan 09 2022 Sérgio Basto <sergio@serjux.com> - 35.4-1
+- New names for configurations (%{name}-%{version}-%{arch}.cfg)
+- Drop kwizart repo (#21)
+- Add support for EPEL-next (#20)
+
 * Tue Nov 02 2021 Sérgio Basto <sergio@serjux.com> - 35.3-1
 - RPM Fusion F35 Release
 
