@@ -46,7 +46,7 @@ for arch in $ARCHES ; do
     else
       echo "include('${flavour}-${fver}-${arch}-rpmfusion_free.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
