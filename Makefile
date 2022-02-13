@@ -1,4 +1,4 @@
-VERSION=35.3
+VERSION=36.0
 RELEASE=1
 
 default: update release-free release-nonfree
