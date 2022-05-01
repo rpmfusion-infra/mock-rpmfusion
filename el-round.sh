@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ARCHES="x86_64 aarch64 ppc64le"
-FVERSION="7 8"
+FVERSION="7 8 9"
 REPOS="rpmfusion_free rpmfusion_nonfree"
 FLAVOUR="epel epel-next"
 etc_mock=../mock/mock-core-configs/etc/mock
@@ -17,18 +17,20 @@ for arch in $ARCHES ; do
 
 #### script
 
-  # removing obsoleted .cfg
-  if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/${flavour}-${fver}-${arch}.cfg" ] ; then
-    echo "doesnt exist ${etc_mock}/${flavour}-${fver}-${arch}.cfg"
-    rm -f "${flavour}-${fver}-${arch}-${repo}.cfg"
-    continue
-  fi
   # RPMFusion el7 don't have aarch64 builders
   if [ "$arch" = "aarch64" ] && [ "${fver}" -lt "8" ] ; then
     continue
   fi
   # RPMFusion el7 don't have ppc64le builders
   if [ "$arch" = "ppc64le" ] && [ "${fver}" -lt "8" ] ; then
+    continue
+  fi
+  if [ "$flavour" = "epel-next" ] && [ "${fver}" -lt "8" ] ; then
+    continue
+  fi
+  # if $etc_mock directory exist check .cfg,
+  if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/${flavour}-${fver}-${arch}.cfg" ] ; then
+    echo "doesnt exist ${etc_mock}/${flavour}-${fver}-${arch}.cfg"
     continue
   fi
 

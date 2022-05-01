@@ -30,10 +30,9 @@ for arch in $ARCHES ; do
     fver=rawhide
   fi
 
-  # removing obsoleted .cfg
+  # if $etc_mock directory exist, check .cfg files
   if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/fedora-${fver}-${arch}.cfg" ] ; then
     echo "doesnt exist ${etc_mock}/fedora-${fver}-${arch}.cfg"
-    rm -f "fedora-${fver}-${arch}-${repo}.cfg"
     continue
   fi
 

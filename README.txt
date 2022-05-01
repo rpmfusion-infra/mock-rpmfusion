@@ -47,6 +47,7 @@ diff mock-rpmfusion-free.spec ../../mock-rpmfusion-free/ -s
 cp mock-rpmfusion-free.spec ../../mock-rpmfusion-free/
 cd ../../mock-rpmfusion-free/
 spectool -g mock-rpmfusion-free.spec
+cd -
 diff ./mock-rpmfusion-free-$VERSION.tar.bz2 ../../mock-rpmfusion-free/ -s
 cd -
 #to test
@@ -66,6 +67,7 @@ diff mock-rpmfusion-nonfree.spec ../../nonfree/mock-rpmfusion-nonfree/ -s
 cp mock-rpmfusion-nonfree.spec ../../nonfree/mock-rpmfusion-nonfree/
 cd ../../nonfree/mock-rpmfusion-nonfree/
 spectool -g mock-rpmfusion-nonfree.spec
+cd -
 diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 ../../nonfree/mock-rpmfusion-nonfree/ -s
 cd -
 rfpkg new-sources ./mock-rpmfusion-nonfree-$VERSION.tar.bz2
@@ -73,8 +75,9 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 
+git checkout f36 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f35 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f34 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f33 && git merge master && git push && rfpkg build --nowait; git checkout master
+git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master
