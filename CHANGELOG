@@ -4,6 +4,8 @@
 
 * Sun Feb 13 2022 Sérgio Basto <sergio@serjux.com> - 36.0-1
 - F36 branch
+- Drop kwizart repo (#21)
+- Add support for EPEL-next (#20)
 
 * Tue Nov 02 2021 Sérgio Basto <sergio@serjux.com> - 35.3-1
 - RPM Fusion F35 Release
