@@ -1,4 +1,4 @@
-VERSION=36.1
+VERSION=37.0
 RELEASE=1
 
 default: update release-free release-nonfree
