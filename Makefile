@@ -1,4 +1,4 @@
-VERSION=37.0
+VERSION=37.1
 RELEASE=1
 
 default: update release-free release-nonfree
@@ -9,6 +9,7 @@ clean-before-update:
 	rm -rf etc/mock/*cfg
 
 update:
+	mkdir -p etc/mock
 	./round.sh
 	./el-round.sh
 
@@ -18,7 +19,7 @@ release-free :
 		> mock-rpmfusion-free.spec
 	cat CHANGELOG >> mock-rpmfusion-free.spec
 	tar cjf mock-rpmfusion-free-$(VERSION).tar.bz2 \
-		etc/mock/*_free.cfg \
+		etc/mock/*rpmfusion_free*.cfg \
 		etc/mock/templates/rpmfusion_free*.tpl \
 		mock-rpmfusion-free.spec
 
@@ -28,7 +29,7 @@ release-nonfree :
 		> mock-rpmfusion-nonfree.spec
 	cat CHANGELOG >> mock-rpmfusion-nonfree.spec
 	tar cjf mock-rpmfusion-nonfree-$(VERSION).tar.bz2 \
-		etc/mock/*_nonfree.cfg \
+		etc/mock/*rpmfusion_nonfree*.cfg \
 		etc/mock/templates/rpmfusion_nonfree*.tpl \
 		mock-rpmfusion-nonfree.spec
 

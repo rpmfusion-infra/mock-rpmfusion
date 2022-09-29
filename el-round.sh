@@ -35,21 +35,21 @@ for arch in $ARCHES ; do
     continue
   fi
 
+  cfg_name_new="${flavour}+${repo}-${fver}-${arch}.cfg"
   if [ "$repo" = rpmfusion_free ] ; then
+    echo "include('${flavour}-${fver}-${arch}.cfg')" > $cfg_name_new
     if [ "${flavour}" = "epel-next" ] ; then
-      echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
-    else
-      echo "include('${flavour}-${fver}-${arch}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
+      echo "include('templates/rpmfusion_free-epel.tpl')" >> $cfg_name_new
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> $cfg_name_new
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
+    echo "include('${flavour}+rpmfusion_free-${fver}-${arch}.cfg')" > $cfg_name_new
     if [ "${flavour}" = "epel-next" ] ; then
-      echo "include('epel-${fver}-${arch}-${repo}.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
-    else
-      echo "include('${flavour}-${fver}-${arch}-rpmfusion_free.cfg')" > "${flavour}-${fver}-${arch}-${repo}.cfg"
+      #echo "include('epel-next-${fver}-${arch}.cfg')" > $cfg_name_new
+      echo "include('templates/rpmfusion_nonfree-epel.tpl')" >> $cfg_name_new
     fi
-    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "${flavour}-${fver}-${arch}-${repo}.cfg"
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> $cfg_name_new
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
@@ -57,7 +57,7 @@ for arch in $ARCHES ; do
     if [ "$flavour" = "epel-next" ] ; then
       continue
     else
-      sed -i -e "s|epel.tpl|epel_yum.tpl|g" "${flavour}-${fver}-${arch}-${repo}.cfg"
+      sed -i -e "s|epel.tpl|epel_yum.tpl|g" $cfg_name_new
     fi
   fi
 
@@ -69,7 +69,7 @@ for arch in $ARCHES ; do
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
 #done
 
-  mv "${flavour}-${fver}-${arch}-${repo}.cfg" etc/mock/
+  mv $cfg_name_new etc/mock/
 ### /script
       done
     done
