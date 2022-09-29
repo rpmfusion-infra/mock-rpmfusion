@@ -25,7 +25,8 @@ for arch in $ARCHES ; do
   if [ "$arch" = "ppc64le" ] && [ "${fver}" -lt "8" ] ; then
     continue
   fi
-  if [ "$flavour" = "epel-next" ] && [ "${fver}" -lt "8" ] ; then
+  # RPMFusion el8 don't have next repos
+  if [ "$flavour" = "epel-next" ] && [ "${fver}" -lt "9" ] ; then
     continue
   fi
   # if $etc_mock directory exist check .cfg,
