@@ -1,6 +1,7 @@
 * Sat Sep 24 2022 Sérgio Basto <sergio@serjux.com> - 37.1-1
 - New names for configurations (%{reponame}-%{version}-%{arch}.cfg)
 - Make links to short names of settings names in el
+- Add links from old configuration names to new names for backwards compatibility.
 
 * Mon Sep 19 2022 Sérgio Basto <sergio@serjux.com> - 37.0-1
 - F37 branch

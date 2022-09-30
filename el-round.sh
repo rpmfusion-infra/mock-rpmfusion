@@ -36,6 +36,7 @@ for arch in $ARCHES ; do
   fi
 
   cfg_name_new="${flavour}+${repo}-${fver}-${arch}.cfg"
+  cfg_name_old="${flavour}-${fver}-${arch}-${repo}.cfg"
   if [ "$repo" = rpmfusion_free ] ; then
     echo "include('${flavour}-${fver}-${arch}.cfg')" > $cfg_name_new
     if [ "${flavour}" = "epel-next" ] ; then
@@ -69,7 +70,9 @@ for arch in $ARCHES ; do
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
 #done
 
+  ln -sr $cfg_name_new $cfg_name_old
   mv $cfg_name_new etc/mock/
+  mv $cfg_name_old etc/mock/
 ### /script
       done
     done
