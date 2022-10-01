@@ -13,7 +13,7 @@ name=RPM Fusion for EL $releasever - Nonfree - Test Updates
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-el-updates-testing-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-nonfree-el-$releasever
 gpgcheck=1
-enabled=1
+enabled=0
 
 [local-nonfree]
 name=RPM Fusion for EL $releasever - NonFree - Local repo
