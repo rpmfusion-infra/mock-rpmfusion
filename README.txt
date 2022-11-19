@@ -16,6 +16,20 @@ To have changelog , you may need run make to have mock-rpmfusion-free.spec
 MSG="F33 GA"
 rpmdev-bumpspec -c "$MSG" mock-rpmfusion-free.spec
 Edit CHANGELOG with result of rpmdev-bumpspec
+etc_mock=../mock/mock-core-configs/etc/mock
+cd $etc_mock/
+ln -srf alma+epel-8-aarch64.cfg epel-8-aarch64.cfg
+ln -srf alma+epel-8-ppc64le.cfg epel-8-ppc64le.cfg
+ln -srf alma+epel-8-x86_64.cfg epel-8-x86_64.cfg
+# no epel-next+rpmfusion-8 available
+ln -srf centos-stream+epel-9-aarch64.cfg epel-9-aarch64.cfg
+ln -srf centos-stream+epel-9-ppc64le.cfg epel-9-ppc64le.cfg
+ln -srf centos-stream+epel-9-s390x.cfg epel-9-s390x.cfg
+ln -srf centos-stream+epel-9-x86_64.cfg epel-9-x86_64.cfg
+ln -srf centos-stream+epel-next-9-aarch64.cfg epel-next-9-aarch64.cfg
+ln -srf centos-stream+epel-next-9-ppc64le.cfg epel-next-9-ppc64le.cfg
+ln -srf centos-stream+epel-next-9-s390x.cfg epel-next-9-s390x.cfg
+ln -srf centos-stream+epel-next-9-x86_64.cfg epel-next-9-x86_64.cfg
 To check if all good:
   make
   git status
@@ -36,7 +50,7 @@ tag equal to Makefile VERSION
 
 Set bash terminal the actual version that we want to build for example:
 VERSION=32.2
-upload mock-kwizart-$VERSION.tar.bz2, mock-rpmfusion-free-$VERSION.tar.bz2 and mock-rpmfusion-nonfree-$VERISON.tar.bz2
+upload mock-rpmfusion-free-$VERSION.tar.bz2 and mock-rpmfusion-nonfree-$VERISON.tar.bz2
 
 # Build free package:
 cd ../../mock-rpmfusion-free/

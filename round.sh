@@ -1,8 +1,8 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 armhfp ppc64le"
-FVERSION="34 35 36"
-BRANCHED="37"
+FVERSION="34 35 36 37"
+BRANCHED=""
 RAWHIDE="38"
 REPOS="rpmfusion_free rpmfusion_nonfree"
 etc_mock=../mock/mock-core-configs/etc/mock
@@ -16,6 +16,11 @@ for arch in $ARCHES ; do
     for fver in $FVERSION $BRANCHED $RAWHIDE ; do
 
 #### script
+
+  # RPMFusion f37 don't have armhfp builders
+  if [ "$arch" = "armhfp" ] && [ "${fver}" -ge "37" ] ; then
+    continue
+  fi
 
   flavour=stable
   fver_alt=$fver
