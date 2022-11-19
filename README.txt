@@ -10,12 +10,17 @@ git reset --hard %{name}-%{version}
 popd
 
 Phase 2:
-Set VERSION on Makefile
+VERSION=37.2
+MSG="F37 GA"
+# Set VERSION on Makefile
+sed -i 's/VERSION=.*/VERSION=37.2/' Makefile
+
 Edit round.sh and or edit el-round.sh ( for epel8 )
 To have changelog , you may need run make to have mock-rpmfusion-free.spec
-MSG="F33 GA"
 rpmdev-bumpspec -c "$MSG" mock-rpmfusion-free.spec
 Edit CHANGELOG with result of rpmdev-bumpspec
+
+# create symlinks on source (mock-core-configs)
 etc_mock=../mock/mock-core-configs/etc/mock
 cd $etc_mock/
 ln -srf alma+epel-8-aarch64.cfg epel-8-aarch64.cfg
@@ -49,14 +54,19 @@ Go to https://github.com/rpmfusion-infra/mock-rpmfusion/releases and add a new r
 tag equal to Makefile VERSION
 
 Set bash terminal the actual version that we want to build for example:
-VERSION=32.2
 upload mock-rpmfusion-free-$VERSION.tar.bz2 and mock-rpmfusion-nonfree-$VERISON.tar.bz2
 
-# Build free package:
+# checkout and pull mock-rpmfusion-free and mock-rpmfusion-nonfree (directories are hardcoded)
 cd ../../mock-rpmfusion-free/
 git checkout master
 git pull
 cd -
+cd ../../nonfree/mock-rpmfusion-nonfree/
+git checkout master
+git pull
+cd -
+
+# free package:
 diff mock-rpmfusion-free.spec ../../mock-rpmfusion-free/ -s
 cp mock-rpmfusion-free.spec ../../mock-rpmfusion-free/
 cd ../../mock-rpmfusion-free/
@@ -65,17 +75,15 @@ diff ./mock-rpmfusion-free-$VERSION.tar.bz2 ../rpmfusion-infra/mock-rpmfusion/ -
 
 #to test
 rfpkg srpm && mock -r fedora-rawhide-x86_64-rpmfusion_free --no-clean --rebuild mock-rpmfusion-free-$VERSION-1.fc36.src.rpm
+
+# Build
 rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
 rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 cd -
 
-# Build nonfree package:
-cd ../../nonfree/mock-rpmfusion-nonfree/
-git checkout master
-git pull
-cd -
+# nonfree package:
 diff mock-rpmfusion-nonfree.spec ../../nonfree/mock-rpmfusion-nonfree/ -s
 cp mock-rpmfusion-nonfree.spec ../../nonfree/mock-rpmfusion-nonfree/
 cd ../../nonfree/mock-rpmfusion-nonfree/
@@ -87,6 +95,7 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 
+# Build other branches
 git checkout f37 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f36 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f35 && git merge master && git push && rfpkg build --nowait; git checkout master
