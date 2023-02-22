@@ -5,40 +5,28 @@ popd
 pushd ../mock/mock-core-configs
 git pull
 git tag | grep mock-core-configs | tail -n1
-git reset --hard %{name}-%{version}
-(example:  git reset --hard mock-core-configs-29.2-1)
+#git reset --hard %{name}-%{version}
+#(example:  git reset --hard mock-core-configs-29.2-1)
+git reset --hard $(git tag | grep mock-core-configs | tail -n1)
 popd
 
 Phase 2:
 VERSION=37.2
 MSG="F37 GA"
 # Set VERSION on Makefile
-sed -i 's/VERSION=.*/VERSION=37.2/' Makefile
+sed -i "s/VERSION=.*/VERSION=$VERSION/" Makefile
 
-Edit round.sh and or edit el-round.sh ( for epel8 )
+Edit round.sh with BRANCHED="F38" and or edit el-round.sh ( for epel8 )
+
 To have changelog , you may need run make to have mock-rpmfusion-free.spec
 rpmdev-bumpspec -c "$MSG" mock-rpmfusion-free.spec
 Edit CHANGELOG with result of rpmdev-bumpspec
 
-# create symlinks on source (mock-core-configs)
-etc_mock=../mock/mock-core-configs/etc/mock
-cd $etc_mock/
-ln -srf alma+epel-8-aarch64.cfg epel-8-aarch64.cfg
-ln -srf alma+epel-8-ppc64le.cfg epel-8-ppc64le.cfg
-ln -srf alma+epel-8-x86_64.cfg epel-8-x86_64.cfg
-# no epel-next+rpmfusion-8 available
-ln -srf centos-stream+epel-9-aarch64.cfg epel-9-aarch64.cfg
-ln -srf centos-stream+epel-9-ppc64le.cfg epel-9-ppc64le.cfg
-ln -srf centos-stream+epel-9-s390x.cfg epel-9-s390x.cfg
-ln -srf centos-stream+epel-9-x86_64.cfg epel-9-x86_64.cfg
-ln -srf centos-stream+epel-next-9-aarch64.cfg epel-next-9-aarch64.cfg
-ln -srf centos-stream+epel-next-9-ppc64le.cfg epel-next-9-ppc64le.cfg
-ln -srf centos-stream+epel-next-9-s390x.cfg epel-next-9-s390x.cfg
-ln -srf centos-stream+epel-next-9-x86_64.cfg epel-next-9-x86_64.cfg
 To check if all good:
   make
   git status
-TO commit just code changes:
+
+To commit just code changes:
   git checkout etc/mock/
   git diff
   git commit . -m "$MSG"
