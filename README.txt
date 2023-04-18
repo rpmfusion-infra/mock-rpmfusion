@@ -3,10 +3,8 @@ pushd ..
 git clone https://github.com/rpm-software-management/mock.git
 popd
 pushd ../mock/mock-core-configs
-git pull
-git tag | grep mock-core-configs | tail -n1
-#git reset --hard %{name}-%{version}
-#(example:  git reset --hard mock-core-configs-29.2-1)
+git fetch
+#git tag | grep mock-core-configs | tail -n1
 git reset --hard $(git tag | grep mock-core-configs | tail -n1)
 popd
 
@@ -84,9 +82,9 @@ git show
 rfpkg push && rfpkg build --nowait
 
 # Build other branches
+git checkout f38 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f37 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f36 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f35 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el7 && git merge master && git push && rfpkg build --nowait; git checkout master
