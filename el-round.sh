@@ -9,6 +9,9 @@ etc_mock=../mock/mock-core-configs/etc/mock
 # with mock rpmfusion configuration
 #etc_mock=/etc/mock
 
+# uncomment the next line to delete old configuration for versions removed
+# from $etc_mock (requires etc_mock)
+#cleanup=1
 
 for arch in $ARCHES ; do
   for repo in $REPOS ; do
@@ -29,28 +32,41 @@ for arch in $ARCHES ; do
   if [ "$flavour" = "epel-next" ] && [ "${fver}" -lt "9" ] ; then
     continue
   fi
-  # if $etc_mock directory exist check .cfg,
-  if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/${flavour}-${fver}-${arch}.cfg" ] ; then
-    echo "doesnt exist ${etc_mock}/${flavour}-${fver}-${arch}.cfg"
-    continue
+
+  # epel-7 relies on links in $etc_mock, after that we make our own
+  if [ "${fver}" -lt "8" ] ; then
+    cfg_upstream="${etc_mock}/${flavour}-${fver}-${arch}.cfg"
+  else
+    cfg_upstream="etc/mock/${flavour}-${fver}-${arch}.cfg"
   fi
 
   cfg_name_new="${flavour}+${repo}-${fver}-${arch}.cfg"
   cfg_name_old="${flavour}-${fver}-${arch}-${repo}.cfg"
-  if [ "$repo" = rpmfusion_free ] ; then
-    echo "include('${flavour}-${fver}-${arch}.cfg')" > $cfg_name_new
-    if [ "${flavour}" = "epel-next" ] ; then
-      echo "include('templates/rpmfusion_free-epel.tpl')" >> $cfg_name_new
+
+  # if $etc_mock directory exist, check .cfg files
+  if [ -d "$(dirname "${cfg_upstream}")" ] && [ ! -L "${cfg_upstream}" ] ; then
+    echo "does not exist ${cfg_upstream}"
+    if [ x"$cleanup" != x"" ] && [ -f "etc/mock/$cfg_name_new" ]; then
+      rm -f "etc/mock/$cfg_name_new"
+      rm -f "etc/mock/$cfg_name_old"
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> $cfg_name_new
+    continue
+  fi
+
+  if [ "$repo" = rpmfusion_free ] ; then
+    echo "include('${flavour}-${fver}-${arch}.cfg')" > "$cfg_name_new"
+    if [ "${flavour}" = "epel-next" ] ; then
+      echo "include('templates/rpmfusion_free-epel.tpl')" >> "$cfg_name_new"
+    fi
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "$cfg_name_new"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    echo "include('${flavour}+rpmfusion_free-${fver}-${arch}.cfg')" > $cfg_name_new
+    echo "include('${flavour}+rpmfusion_free-${fver}-${arch}.cfg')" > "$cfg_name_new"
     if [ "${flavour}" = "epel-next" ] ; then
-      #echo "include('epel-next-${fver}-${arch}.cfg')" > $cfg_name_new
-      echo "include('templates/rpmfusion_nonfree-epel.tpl')" >> $cfg_name_new
+      #echo "include('epel-next-${fver}-${arch}.cfg')" > "$cfg_name_new"
+      echo "include('templates/rpmfusion_nonfree-epel.tpl')" >> "$cfg_name_new"
     fi
-    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> $cfg_name_new
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "$cfg_name_new"
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
@@ -58,7 +74,7 @@ for arch in $ARCHES ; do
     if [ "$flavour" = "epel-next" ] ; then
       continue
     else
-      sed -i -e "s|epel.tpl|epel_yum.tpl|g" $cfg_name_new
+      sed -i -e "s|epel.tpl|epel_yum.tpl|g" "$cfg_name_new"
     fi
   fi
 
@@ -70,9 +86,9 @@ for arch in $ARCHES ; do
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
 #done
 
-  ln -sr $cfg_name_new $cfg_name_old
-  mv $cfg_name_new etc/mock/
-  mv $cfg_name_old etc/mock/
+  ln -sr "$cfg_name_new" "$cfg_name_old"
+  mv "$cfg_name_new" etc/mock/
+  mv "$cfg_name_old" etc/mock/
 ### /script
       done
     done

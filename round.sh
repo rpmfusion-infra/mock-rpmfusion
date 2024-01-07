@@ -10,6 +10,10 @@ etc_mock=../mock/mock-core-configs/etc/mock
 # with mock rpmfusion configuration
 #etc_mock=/etc/mock
 
+# uncomment the next line to delete old configuration for versions removed
+# from $etc_mock (requires etc_mock)
+#cleanup=1
+
 
 for arch in $ARCHES ; do
   for repo in $REPOS ; do
@@ -35,21 +39,27 @@ for arch in $ARCHES ; do
     fver=rawhide
   fi
 
+  cfg_upstream="${etc_mock}/fedora-${fver}-${arch}.cfg"
+  cfg_name_new="fedora+${repo}-${fver}-${arch}.cfg"
+  cfg_name_old="fedora-${fver}-${arch}-${repo}.cfg"
+
   # if $etc_mock directory exist, check .cfg files
-  if [ -d "${etc_mock}" ] && [ ! -f "${etc_mock}/fedora-${fver}-${arch}.cfg" ] ; then
-    echo "doesnt exist ${etc_mock}/fedora-${fver}-${arch}.cfg"
+  if [ -d "$(dirname "${cfg_upstream}")" ] && [ ! -f "${cfg_upstream}" ] ; then
+    echo "does not exist ${cfg_upstream}"
+    if [ x"$cleanup" != x"" ] && [ -f "etc/mock/$cfg_name_new" ]; then
+      rm -f "etc/mock/$cfg_name_new"
+      rm -f "etc/mock/$cfg_name_old"
+    fi
     continue
   fi
 
-  cfg_name_new="fedora+${repo}-${fver}-${arch}.cfg"
-  cfg_name_old="fedora-${fver}-${arch}-${repo}.cfg"
   if [ "$repo" = rpmfusion_free ] ; then
-    echo "include('fedora-${fver_alt}-${arch}.cfg')" > $cfg_name_new
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> $cfg_name_new
+    echo "include('fedora-${fver_alt}-${arch}.cfg')" > "$cfg_name_new"
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "$cfg_name_new"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    echo "include('fedora+rpmfusion_free-${fver}-${arch}.cfg')" > $cfg_name_new
-    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> $cfg_name_new
+    echo "include('fedora+rpmfusion_free-${fver}-${arch}.cfg')" > "$cfg_name_new"
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "$cfg_name_new"
   fi
 #  sed -i -e "s|\$basearch|${arch}|g" fedora+${fver}-${arch}-${repo}.cfg
 #  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
@@ -61,9 +71,9 @@ for arch in $ARCHES ; do
     #    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
     #fi
   #fi
-  ln -sr $cfg_name_new $cfg_name_old
-  mv $cfg_name_old etc/mock/
-  mv $cfg_name_new etc/mock/
+  ln -sr "$cfg_name_new" "$cfg_name_old"
+  mv "$cfg_name_old" etc/mock/
+  mv "$cfg_name_new" etc/mock/
   #git add etc/mock/fedora-${fver}-${arch}-${repo}.cfg
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
