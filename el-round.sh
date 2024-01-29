@@ -38,19 +38,19 @@ for arch in $ARCHES ; do
   cfg_name_new="${flavour}+${repo}-${fver}-${arch}.cfg"
   cfg_name_old="${flavour}-${fver}-${arch}-${repo}.cfg"
   if [ "$repo" = rpmfusion_free ] ; then
-    echo "include('${flavour}-${fver}-${arch}.cfg')" > $cfg_name_new
+    echo "include('${flavour}-${fver}-${arch}.cfg')" > "$cfg_name_new"
     if [ "${flavour}" = "epel-next" ] ; then
-      echo "include('templates/rpmfusion_free-epel.tpl')" >> $cfg_name_new
+      echo "include('templates/rpmfusion_free-epel.tpl')" >> "$cfg_name_new"
     fi
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> $cfg_name_new
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "$cfg_name_new"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    echo "include('${flavour}+rpmfusion_free-${fver}-${arch}.cfg')" > $cfg_name_new
+    echo "include('${flavour}+rpmfusion_free-${fver}-${arch}.cfg')" > "$cfg_name_new"
     if [ "${flavour}" = "epel-next" ] ; then
-      #echo "include('epel-next-${fver}-${arch}.cfg')" > $cfg_name_new
-      echo "include('templates/rpmfusion_nonfree-epel.tpl')" >> $cfg_name_new
+      #echo "include('epel-next-${fver}-${arch}.cfg')" > "$cfg_name_new"
+      echo "include('templates/rpmfusion_nonfree-epel.tpl')" >> "$cfg_name_new"
     fi
-    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> $cfg_name_new
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "$cfg_name_new"
   fi
 # yum.conf on epel-7
   if [ "${fver}" -lt "8" ]; then
@@ -58,7 +58,7 @@ for arch in $ARCHES ; do
     if [ "$flavour" = "epel-next" ] ; then
       continue
     else
-      sed -i -e "s|epel.tpl|epel_yum.tpl|g" $cfg_name_new
+      sed -i -e "s|epel.tpl|epel_yum.tpl|g" "$cfg_name_new"
     fi
   fi
 
@@ -70,9 +70,9 @@ for arch in $ARCHES ; do
   #sed -i -e "s|#baseurl=http://download1.rpmfusion.org/nonfree/fedora/|baseurl=http://download1.rpmfusion.org/nonfree/fedora-secondary/|g" fedora-${fver}-${arch2}-${repo}.cfg
 #done
 
-  ln -sr $cfg_name_new $cfg_name_old
-  mv $cfg_name_new etc/mock/
-  mv $cfg_name_old etc/mock/
+  ln -sr "$cfg_name_new" "$cfg_name_old"
+  mv "$cfg_name_new" etc/mock/
+  mv "$cfg_name_old" etc/mock/
 ### /script
       done
     done

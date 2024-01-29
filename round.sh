@@ -44,12 +44,12 @@ for arch in $ARCHES ; do
   cfg_name_new="fedora+${repo}-${fver}-${arch}.cfg"
   cfg_name_old="fedora-${fver}-${arch}-${repo}.cfg"
   if [ "$repo" = rpmfusion_free ] ; then
-    echo "include('fedora-${fver_alt}-${arch}.cfg')" > $cfg_name_new
-    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> $cfg_name_new
+    echo "include('fedora-${fver_alt}-${arch}.cfg')" > "$cfg_name_new"
+    echo "include('templates/rpmfusion_free-${flavour}.tpl')" >> "$cfg_name_new"
   fi
   if [ "$repo" = rpmfusion_nonfree ] ; then
-    echo "include('fedora+rpmfusion_free-${fver}-${arch}.cfg')" > $cfg_name_new
-    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> $cfg_name_new
+    echo "include('fedora+rpmfusion_free-${fver}-${arch}.cfg')" > "$cfg_name_new"
+    echo "include('templates/rpmfusion_nonfree-${flavour}.tpl')" >> "$cfg_name_new"
   fi
 #  sed -i -e "s|\$basearch|${arch}|g" fedora+${fver}-${arch}-${repo}.cfg
 #  sed -i -e "s|\$releasever|${fver}|g" fedora-${fver}-${arch}-${repo}.cfg
@@ -61,9 +61,9 @@ for arch in $ARCHES ; do
     #    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
     #fi
   #fi
-  ln -sr $cfg_name_new $cfg_name_old
-  mv $cfg_name_old etc/mock/
-  mv $cfg_name_new etc/mock/
+  ln -sr "$cfg_name_new" "$cfg_name_old"
+  mv "$cfg_name_old" etc/mock/
+  mv "$cfg_name_new" etc/mock/
   #git add etc/mock/fedora-${fver}-${arch}-${repo}.cfg
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg
   #sed -i -e "s|kojipkgs.fedoraproject.org|sparc.koji.fedoraproject.org|g" fedora-${fver}-${arch2}-${repo}.cfg
