@@ -82,6 +82,7 @@ git show
 rfpkg push && rfpkg build --nowait
 
 # Build other branches
+git checkout f40 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f39 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f38 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master
