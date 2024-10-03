@@ -4,7 +4,7 @@ name=RPM Fusion for Fedora Rawhide - Free
 #baseurl=https://download1.rpmfusion.org/free/fedora/development/rawhide/Everything/$basearch/os/
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$basearch
-gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 gpgcheck=1
 enabled=1
 
@@ -13,7 +13,7 @@ name=RPM Fusion for Fedora Rawhide - Free - Debug
 #baseurl=https://download1.rpmfusion.org/free/fedora/development/rawhide/Everything/$basearch/debug/
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-debug&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-debug&arch=$basearch
-gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 gpgcheck=1
 enabled=0
 
@@ -25,7 +25,7 @@ enabled=1
 metadata_expire=14d
 repo_gpgcheck=0
 gpgcheck=1
-gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-$basearch
+gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-rawhide
 skip_if_unavailable=True
 
 [local-free]
