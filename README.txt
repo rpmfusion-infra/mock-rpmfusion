@@ -16,13 +16,12 @@ sed -i "s/VERSION=.*/VERSION=$VERSION/" Makefile
 
 Edit round.sh with BRANCHED="F38" and or edit el-round.sh ( for epel8 )
 
-To have changelog , you may need run make to have mock-rpmfusion-free.spec
-rpmdev-bumpspec -c "$MSG" mock-rpmfusion-free.spec
-Edit CHANGELOG with result of rpmdev-bumpspec
-
 To check if all good:
   make
   git status
+
+rpmdev-bumpspec -c "$MSG" mock-rpmfusion-free.spec
+Edit CHANGELOG with result of rpmdev-bumpspec
 
 To commit just code changes:
   git checkout etc/mock/
