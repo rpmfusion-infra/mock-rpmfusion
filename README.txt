@@ -51,7 +51,7 @@ pushd $REL_PATH_TO_PKG_FREE
 git checkout master
 git pull
 popd
-pushd $REL_PATH_TO_PKG_FREE
+pushd $REL_PATH_TO_PKG_NONFREE
 git checkout master
 git pull
 popd
