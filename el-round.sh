@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ARCHES="x86_64 aarch64 ppc64le"
-FVERSION="7 8 9"
+FVERSION="7 8 9 10"
 REPOS="rpmfusion_free rpmfusion_nonfree"
 FLAVOUR="epel epel-next"
 etc_mock=../mock/mock-core-configs/etc/mock
