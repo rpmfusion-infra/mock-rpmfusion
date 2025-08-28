@@ -1,3 +1,5 @@
+# This README is about how update and build mock-rpmfusion packages
+
 # Source is created by
 pushd ..
 git clone https://github.com/rpm-software-management/mock.git
@@ -88,9 +90,10 @@ popd
 
 pushd $REL_PATH_TO_PKG_FREE
 # Build other branches
+git checkout f43 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f42 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f41 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f40 && git merge master && git push && rfpkg build --nowait; git checkout master
+git checkout el10 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 popd
