@@ -1,13 +1,11 @@
 config_opts['dnf.conf'] += """
 [rpmfusion-nonfree-next]
 name=RPM Fusion for EL $releasever - Nonfree - Next
-#baseurl=https://download1.rpmfusion.org/nonfree/el/next/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-el-next-$releasever&arch=$basearch
 enabled=1
 
 [rpmfusion-nonfree-next-testing]
 name=RPM Fusion for EL $releasever - Nonfree - Test Next
-#baseurl=https://download1.rpmfusion.org/nonfree/el/next/testing/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-el-next-testing-$releasever&arch=$basearch
 enabled=0
 

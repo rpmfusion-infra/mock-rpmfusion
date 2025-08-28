@@ -1,7 +1,6 @@
 config_opts['dnf.conf'] += """
 [rpmfusion-nonfree-rawhide]
 name=RPM Fusion for Fedora Rawhide - Nonfree
-#baseurl=https://download1.rpmfusion.org/nonfree/fedora/development/rawhide/Everything/$basearch/os/
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
@@ -10,7 +9,6 @@ enabled=1
 
 [rpmfusion-nonfree-rawhide-debuginfo]
 name=RPM Fusion for Fedora Rawhide - Nonfree - Debug
-#baseurl=https://download1.rpmfusion.org/nonfree/fedora/development/rawhide/Everything/$basearch/debug/
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide-debug&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide-debug&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever

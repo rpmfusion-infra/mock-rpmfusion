@@ -43,7 +43,6 @@ enabled=0
 
 [rpmfusion-free-updates-testing]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates
-#baseurl=https://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1

@@ -1,7 +1,6 @@
 config_opts['dnf.conf'] += """
 [rpmfusion-free-updates]
 name=RPM Fusion for EL $releasever - Free - Updates
-#baseurl=https://download1.rpmfusion.org/free/el/updates/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-updates-released-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-el-$releasever
 gpgcheck=1
@@ -9,7 +8,6 @@ enabled=1
 
 [rpmfusion-free-updates-testing]
 name=RPM Fusion for EL $releasever - Free - Test Updates
-#baseurl=https://download1.rpmfusion.org/free/el/updates/testing/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-updates-testing-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-el-$releasever
 gpgcheck=1
