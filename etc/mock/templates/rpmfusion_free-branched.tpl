@@ -15,6 +15,13 @@ gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-f
 gpgcheck=1
 enabled=0
 
+[rpmfusion-free-source]
+name=RPM Fusion for Fedora $releasever - Free - Source
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-source-$releasever&arch=$basearch
+gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgcheck=1
+enabled=0
+
 [rpmfusion-free-updates]
 name=RPM Fusion for Fedora $releasever - Free - Updates
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch
@@ -31,6 +38,13 @@ gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-f
 gpgcheck=1
 enabled=0
 
+[rpmfusion-free-updates-source]
+name=RPM Fusion for Fedora $releasever - Free - Updates Source
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-source-$releasever&arch=$basearch
+gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgcheck=1
+enabled=0
+
 [rpmfusion-free-updates-testing]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-$releasever&arch=$basearch
@@ -43,6 +57,13 @@ enabled=1
 name=RPM Fusion for Fedora $releasever - Free - Test Updates Debug
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-debug-$releasever&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-debug-$releasever&arch=$basearch
+gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgcheck=1
+enabled=0
+
+[rpmfusion-free-updates-testing-source]
+name=RPM Fusion for Fedora $releasever - Free - Test Updates Source
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-source-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1
 enabled=0

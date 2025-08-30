@@ -15,6 +15,14 @@ gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-f
 gpgcheck=1
 enabled=0
 
+[rpmfusion-free-rawhide-source]
+name=RPM Fusion for Fedora Rawhide - Free - Source
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-source&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-source&arch=$basearch
+gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
+gpgcheck=1
+enabled=0
+
 [fedora-cisco-openh264]
 name=Fedora $releasever openh264 (From Cisco) - $basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-$releasever&arch=$basearch

@@ -1,6 +1,7 @@
 config_opts['dnf.conf'] += """
 [rpmfusion-free]
 name=RPM Fusion for Fedora $releasever - Free
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1
@@ -8,6 +9,7 @@ enabled=1
 
 [rpmfusion-free-debuginfo]
 name=RPM Fusion for Fedora $releasever - Free - Debug
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-debug-$releasever&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-debug-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1
@@ -22,6 +24,7 @@ enabled=0
 
 [rpmfusion-free-updates]
 name=RPM Fusion for Fedora $releasever - Free - Updates
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-$releasever&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1
@@ -29,6 +32,7 @@ enabled=1
 
 [rpmfusion-free-updates-debuginfo]
 name=RPM Fusion for Fedora $releasever - Free - Updates Debug
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-debug-$releasever&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-debug-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1
@@ -43,6 +47,7 @@ enabled=0
 
 [rpmfusion-free-updates-testing]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-$releasever&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1
@@ -50,6 +55,7 @@ enabled=0
 
 [rpmfusion-free-updates-testing-debuginfo]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates Debug
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-debug-$releasever&arch=$basearch
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-debug-$releasever&arch=$basearch
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 gpgcheck=1

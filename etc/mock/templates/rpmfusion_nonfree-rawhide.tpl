@@ -15,6 +15,14 @@ gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-n
 gpgcheck=1
 enabled=0
 
+[rpmfusion-nonfree-rawhide-source]
+name=RPM Fusion for Fedora Rawhide - NonFree - Source
+#mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-rawhide-source&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide-source&arch=$basearch
+gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-nonfree-fedora-rawhide
+gpgcheck=1
+enabled=0
+
 [local-nonfree]
 name=RPM Fusion for Fedora Rawhide - Nonfree - Local repo
 baseurl=https://koji.rpmfusion.org/kojifiles/repos/f$releasever-nonfree-build/latest/$basearch/
