@@ -46,13 +46,13 @@ gpgcheck=1
 enabled=0
 
 [local-nonfree]
-name=RPM Fusion for EL $releasever - NonFree - Local repo
-baseurl=https://koji.rpmfusion.org/kojifiles/repos/el$releasever-nonfree/latest/$basearch/
+name=RPM Fusion for EL $releasever - Nonfree - Local repo
+baseurl=https://koji.rpmfusion.org/kojifiles/repos/el$releasever-nonfree-build/latest/$basearch/
 cost=2000
 enabled=0
 
 [buildsys-override-nonfree]
-name=RPM Fusion for EL $releasever - NonFree - Buildsys override
+name=RPM Fusion for EL $releasever - Nonfree - Buildsys override
 baseurl=https://koji.rpmfusion.org/buildsys-override/el$releasever-nonfree/$basearch/
 cost=2000
 enabled=0
