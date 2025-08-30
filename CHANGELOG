@@ -1,3 +1,6 @@
+* Sat Aug 30 2025 Sérgio Basto <sergio@serjux.com> - 43.0-2
+- Add source repos in all configurations and other fixes
+
 * Thu Aug 28 2025 Sérgio Basto <sergio@serjux.com> - 43.0-1
 - F43 branched
 - Add initial EL10 configurations
