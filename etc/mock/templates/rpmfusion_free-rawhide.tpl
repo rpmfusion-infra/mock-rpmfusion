@@ -1,4 +1,7 @@
+config_opts['mirrored'] = config_opts['target_arch'] != 'i686'
+
 config_opts['dnf.conf'] += """
+{% if mirrored %}
 [rpmfusion-free-rawhide]
 name=RPM Fusion for Fedora Rawhide - Free
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide&arch=$basearch
@@ -27,18 +30,19 @@ enabled=0
 name=Fedora $releasever openh264 (From Cisco) - $basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-$releasever&arch=$basearch
 type=rpm
-enabled=1
+enabled=0
 metadata_expire=14d
 repo_gpgcheck=0
 gpgcheck=1
 gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-rawhide
 skip_if_unavailable=True
+{% endif %}
 
 [local-free]
 name=RPM Fusion for Fedora Rawhide - Free - Local repo
-baseurl=https://koji.rpmfusion.org/kojifiles/repos/f$releasever-free-build/latest/$basearch/
+baseurl=https://koji.rpmfusion.org/kojifiles/repos/f$releasever-free-multilibs-build/latest/$basearch/
 cost=2000
-enabled=0
+enabled={{ not mirrored }}
 
 [buildsys-override-free]
 name=RPM Fusion for Fedora $releasever - Free - Buildsys override
