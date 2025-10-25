@@ -58,9 +58,13 @@ git checkout master
 git pull
 popd
 
-# free package:
+#copy new spec file free and nonfree
 diff mock-rpmfusion-free.spec $REL_PATH_TO_PKG_FREE -s
-cp -f mock-rpmfusion-free.spec $REL_PATH_TO_PKG_FREE
+/bin/cp mock-rpmfusion-free.spec $REL_PATH_TO_PKG_FREE
+diff mock-rpmfusion-nonfree.spec $REL_PATH_TO_PKG_NONFREE -s
+/bin/cp mock-rpmfusion-nonfree.spec $REL_PATH_TO_PKG_NONFREE
+
+# free package:
 pushd $REL_PATH_TO_PKG_FREE
 spectool -g mock-rpmfusion-free.spec
 diff ./mock-rpmfusion-free-$VERSION.tar.bz2 $REL_PATH_TO_PKG_FREE_INVERSE -s
@@ -73,22 +77,6 @@ rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
 rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
-popd
-
-# nonfree package:
-diff mock-rpmfusion-nonfree.spec $REL_PATH_TO_PKG_NONFREE -s
-cp mock-rpmfusion-nonfree.spec $REL_PATH_TO_PKG_NONFREE
-pushd $REL_PATH_TO_PKG_NONFREE
-spectool -g mock-rpmfusion-nonfree.spec
-diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 $REL_PATH_TO_PKG_NONFREE_INVERSE -s
-
-rfpkg new-sources ./mock-rpmfusion-nonfree-$VERSION.tar.bz2
-rfpkg ci -c
-git show
-rfpkg push && rfpkg build --nowait
-popd
-
-pushd $REL_PATH_TO_PKG_FREE
 # Build other branches
 git checkout f43 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f42 && git merge master && git push && rfpkg build --nowait; git checkout master
@@ -97,5 +85,15 @@ git checkout el10 && git merge master && git push && rfpkg build --nowait; git c
 git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
 popd
+
+# nonfree package:
 pushd $REL_PATH_TO_PKG_NONFREE
+spectool -g mock-rpmfusion-nonfree.spec
+diff ./mock-rpmfusion-nonfree-$VERSION.tar.bz2 $REL_PATH_TO_PKG_NONFREE_INVERSE -s
+
+rfpkg new-sources ./mock-rpmfusion-nonfree-$VERSION.tar.bz2
+rfpkg ci -c
+git show
+rfpkg push && rfpkg build --nowait
+# Build other branches, in same way of free repo
 popd
