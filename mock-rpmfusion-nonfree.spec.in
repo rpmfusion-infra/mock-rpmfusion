@@ -15,7 +15,7 @@ Mock config files for the RPM Fusion NonFree Repository
 
 
 %prep
-%setup -q -c
+%autosetup -p1 -c
 
 
 %build

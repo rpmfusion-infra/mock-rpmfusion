@@ -1,4 +1,7 @@
-* Fri Oct 24 2025 Sérgio Basto <sergio@serjux.com> - 43.1-2    
+* Fri Nov 14 2025 Sérgio Basto <sergio@serjux.com> - 43.1-2    
+- Fix typos in template rpmfusion_nonfree-rawhide
+
+* Fri Oct 24 2025 Sérgio Basto <sergio@serjux.com> - 43.1-1    
 - F43 GA
 
 * Sat Aug 30 2025 Sérgio Basto <sergio@serjux.com> - 43.0-2
