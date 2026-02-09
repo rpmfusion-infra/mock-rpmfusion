@@ -1,5 +1,5 @@
-VERSION=43.1
-RELEASE=2
+VERSION=44.0
+RELEASE=1
 
 .ONESHELL: # Applies to every targets in the file!
 
