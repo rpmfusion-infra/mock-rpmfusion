@@ -70,7 +70,7 @@ spectool -g mock-rpmfusion-free.spec
 diff ./mock-rpmfusion-free-$VERSION.tar.bz2 $REL_PATH_TO_PKG_FREE_INVERSE -s
 
 #to test
-rfpkg --release f41 mockbuild --default-mock-resultdir -N
+rfpkg --release f43 mockbuild --default-mock-resultdir -N
 
 # Build
 rfpkg new-sources ./mock-rpmfusion-free-$VERSION.tar.bz2
@@ -78,9 +78,9 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 # Build other branches
+git checkout f44 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f43 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f42 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f41 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el10 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master
