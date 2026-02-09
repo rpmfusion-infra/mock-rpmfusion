@@ -61,8 +61,8 @@ for arch in $ARCHES ; do
     #    sed -i -e "s|free/fedora/|free/fedora-secondary/|g" fedora-${fver}-${arch}-${repo}.cfg
     #fi
   #fi
-  ln -sr "$cfg_name_new" "$cfg_name_old"
-  mv "$cfg_name_old" etc/mock/
+  #ln -sr "$cfg_name_new" "$cfg_name_old"
+  #mv "$cfg_name_old" etc/mock/
   mv "$cfg_name_new" etc/mock/
   #git add etc/mock/fedora-${fver}-${arch}-${repo}.cfg
   #sed -i -e "s|mirrorlist=http://mirrors.rpmfusion.org|#mirrorlist=http://mirrors.rpmfusion.org|g" fedora-${fver}-${arch2}-${repo}.cfg

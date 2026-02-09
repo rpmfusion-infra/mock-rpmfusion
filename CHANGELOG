@@ -1,5 +1,6 @@
 * Mon Feb 09 2026 Sérgio Basto <sergio@serjux.com> - 44.0-1
 - F44 branched
+- Remove old configurations names
 
 * Fri Nov 14 2025 Sérgio Basto <sergio@serjux.com> - 43.1-2    
 - Fix typos in template rpmfusion_nonfree-rawhide
