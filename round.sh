@@ -1,8 +1,8 @@
 #!/bin/sh
 
-ARCHES="i386 x86_64 aarch64 armhfp ppc64le"
-FVERSION="42 43"
-BRANCHED="44"
+ARCHES="i386 x86_64 aarch64 ppc64le"
+FVERSION="42 43 44"
+BRANCHED=""
 RAWHIDE="45"
 REPOS="rpmfusion_free rpmfusion_nonfree"
 etc_mock=../mock/mock-core-configs/etc/mock
