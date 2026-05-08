@@ -1,0 +1,19 @@
+ln -s alma+epel-8-aarch64.cfg epel-8-aarch64.cfg
+ln -s alma+epel-8-ppc64le.cfg epel-8-ppc64le.cfg
+ln -s alma+epel-8-x86_64.cfg epel-8-x86_64.cfg
+
+# no epel-next+rpmfusion-8 available
+#ln -s centos-stream+epel-next-8-aarch64.cfg epel-next-8-aarch64.cfg
+#ln -s centos-stream+epel-next-8-ppc64le.cfg epel-next-8-ppc64le.cfg
+#ln -s centos-stream+epel-next-8-x86_64.cfg epel-next-8-x86_64.cfg
+
+ln -s centos-stream+epel-9-aarch64.cfg epel-9-aarch64.cfg
+ln -s centos-stream+epel-9-ppc64le.cfg epel-9-ppc64le.cfg
+ln -s centos-stream+epel-9-s390x.cfg epel-9-s390x.cfg
+ln -s centos-stream+epel-9-x86_64.cfg epel-9-x86_64.cfg
+
+ln -s centos-stream+epel-next-9-aarch64.cfg epel-next-9-aarch64.cfg
+ln -s centos-stream+epel-next-9-ppc64le.cfg epel-next-9-ppc64le.cfg
+ln -s centos-stream+epel-next-9-s390x.cfg epel-next-9-s390x.cfg
+ln -s centos-stream+epel-next-9-x86_64.cfg epel-next-9-x86_64.cfg
+

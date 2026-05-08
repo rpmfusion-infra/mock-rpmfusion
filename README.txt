@@ -4,10 +4,14 @@
 pushd ..
 git clone https://github.com/rpm-software-management/mock.git
 popd
+path=$PWD
 pushd ../mock/mock-core-configs
 git fetch
 #git tag | grep mock-core-configs | tail -n1
 git reset --hard $(git tag | grep mock-core-configs | tail -n1)
+pushd etc/mock
+$path/makelinks.sh
+popd
 popd
 
 Phase 2:
