@@ -1,8 +1,11 @@
+config_opts['arch_major'] = "{% if repo_arch == 'i686' %}x86_64{% else %}$basearch{% endif %}"
+
+
 config_opts['dnf.conf'] += """
 [rpmfusion-free-rawhide]
 name=RPM Fusion for Fedora Rawhide - Free
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide&arch=$basearch
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch={{ arch_major }}
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 gpgcheck=1
 enabled=1
@@ -10,7 +13,7 @@ enabled=1
 [rpmfusion-free-rawhide-debuginfo]
 name=RPM Fusion for Fedora Rawhide - Free - Debug
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-debug&arch=$basearch
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-debug&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-debug&arch={{ arch_major }}
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 gpgcheck=1
 enabled=0
@@ -18,14 +21,14 @@ enabled=0
 [rpmfusion-free-rawhide-source]
 name=RPM Fusion for Fedora Rawhide - Free - Source
 #mirrorlist=https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-source&arch=$basearch
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-source&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-source&arch={{ arch_major }}
 gpgkey=file:///usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 gpgcheck=1
 enabled=0
 
 [fedora-cisco-openh264]
 name=Fedora $releasever openh264 (From Cisco) - $basearch
-metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-$releasever&arch=$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-$releasever&arch={{ arch_major }}
 type=rpm
 enabled=1
 metadata_expire=14d
