@@ -43,6 +43,7 @@ To commit the generated configurations:
 Phase 3:
 Go to https://github.com/rpmfusion-infra/mock-rpmfusion/releases and add a new release
 tag equal to Makefile VERSION
+log can be: git --no-pager log --pretty=tformat:"%C(yellow)%h %C(cyan)%ad %C(auto)%d %Creset%s" --graph --date=format:"%Y-%m-%d %H:%M" 44.2..HEAD
 
 Set bash terminal the actual version that we want to build for example:
 upload mock-rpmfusion-free-$VERSION.tar.bz2 and mock-rpmfusion-nonfree-$VERISON.tar.bz2
@@ -82,9 +83,9 @@ rfpkg ci -c
 git show
 rfpkg push && rfpkg build --nowait
 # Build other branches
+git checkout f45 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f44 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout f43 && git merge master && git push && rfpkg build --nowait; git checkout master
-git checkout f42 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el10 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master
 git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master

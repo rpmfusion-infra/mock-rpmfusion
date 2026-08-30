@@ -1,9 +1,9 @@
 #!/bin/sh
 
 ARCHES="i386 x86_64 aarch64 ppc64le"
-FVERSION="42 43 44"
-BRANCHED=""
-RAWHIDE="45"
+FVERSION="43 44"
+BRANCHED="45"
+RAWHIDE="46"
 REPOS="rpmfusion_free rpmfusion_nonfree"
 etc_mock=../mock/mock-core-configs/etc/mock
 # uncomment the next line to compare mock fedora configurations on /etc/mock
